@@ -35,3 +35,17 @@ describe('addHeartRate', () => {
     expect(result).toEqual(expected);
   });
 });
+
+describe('addActivity', () => {
+  it('should create addActivity action object', () => {
+    const mockActivity = {
+      'activities-steps': [{ dateTime: '2014-09-05', value: 1433 }]
+    };
+    const expected = {
+      type: 'ADD_ACTIVITY',
+      activity: { ...mockActivity }
+    };
+    const result = Actions.addActivity(mockActivity);
+    expect(result).toEqual(expected);
+  });
+});

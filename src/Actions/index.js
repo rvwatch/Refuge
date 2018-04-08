@@ -12,3 +12,8 @@ export const addHeartRate = heartRate => ({
   type: 'ADD_HEART_RATE',
   heartRate
 });
+
+export const addActivity = activity => ({
+  type: 'ADD_ACTIVITY',
+  activity
+});
