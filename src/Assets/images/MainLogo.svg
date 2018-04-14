@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="436px" height="293px" viewBox="0 0 436 293" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 49.3 (51167) - http://www.bohemiancoding.com/sketch -->
+    <title>Group</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-2" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Group" fill="#83B8F4">
+            <text id="efuge" font-family="SignPainter-HouseScript, SignPainter" font-size="200" font-style="condensed" font-weight="normal">
+                <tspan x="50.8" y="212">efuge</tspan>
+            </text>
+            <path d="M3.02528835e-12,64.5585938 L2.7000624e-12,292.753906 L36.1394832,292.753906 C30.2509215,258.276042 27.3066406,224.526042 27.3066406,191.503906 C27.3066406,141.970703 36.1394832,97.9003906 100.724609,73.2480469 C165.309736,48.5957031 245.121094,55.2929687 306.201172,69.9960938 C346.921224,79.7981771 376.657136,91.765625 395.408908,105.898438 L436,64.5585938 C371.557839,41.3268229 298.891172,29.7109375 218,29.7109375 C137.108828,29.7109375 73.5443749,44.2233073 27.3066406,73.2480469 L27.3066406,0 L2.7000624e-12,0 L3.02528835e-12,64.5585938 Z" id="Path" fill-rule="nonzero"></path>
+        </g>
+    </g>
+</svg>
