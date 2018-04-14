@@ -14,12 +14,12 @@ describe('addUser', () => {
 
 describe('addFitBitData', () => {
   it('should create addFitBitData action object', () => {
-    const mockFitBitUser = 'Ricardo V.';
+    const mockFitBitData = 'Ricardo V.';
     const expected = {
-      type: 'ADD_FITBIT_USER',
-      user: mockFitBitUser
+      type: 'ADD_FITBIT_DATA',
+      user: mockFitBitData
     };
-    const result = Actions.addFitBitUser(mockFitBitUser);
+    const result = Actions.addFitBitData(mockFitBitData);
     expect(result).toEqual(expected);
   });
 });
@@ -36,16 +36,20 @@ describe('addHeartRate', () => {
   });
 });
 
-describe('addActivity', () => {
-  it('should create addActivity action object', () => {
-    const mockActivity = {
-      'activities-steps': [{ dateTime: '2014-09-05', value: 1433 }]
-    };
+describe('addStepsTaken', () => {
+  it('should create addStepsTaken action object', () => {
+    const mockStepsTaken = [
+      { time: '14:02:00', value: 51 },
+      { time: '14:03:00', value: 67 },
+      { time: '14:04:00', value: 29 },
+      { time: '14:05:00', value: 68 },
+      { time: '14:06:00', value: 76 }
+    ];
     const expected = {
-      type: 'ADD_ACTIVITY',
-      activity: { ...mockActivity }
+      type: 'ADD_STEPS_TAKEN',
+      steps: mockStepsTaken
     };
-    const result = Actions.addActivity(mockActivity);
+    const result = Actions.addStepsTaken(mockStepsTaken);
     expect(result).toEqual(expected);
   });
 });
