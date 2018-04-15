@@ -7,7 +7,6 @@
   background: -moz-linear-gradient(45deg, rgba(68,161,167,1) 0%, rgba(114,255,203,1) 100%);
   background: -webkit-linear-gradient(45deg, rgba(68,161,167,1) 0%,rgba(114,255,203,1) 100%);
   background: linear-gradient(45deg, rgba(68,161,167,1) 0%,rgba(114,255,203,1) 100%);
-  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#44a1a7', endColorstr='#72ffcb',GradientType=1 );
   -webkit-box-shadow: 0px 2px 5px 0px rgba(0,0,0,0.35);
   -moz-box-shadow: 0px 2px 5px 0px rgba(0,0,0,0.35);
   box-shadow: 0px 2px 5px 0px rgba(0,0,0,0.35);
@@ -15,16 +14,16 @@
 }
 
 .logo-wrap {
-    display: block;
-    border-radius: 100%;
-    border: 7px solid #83B8F4;
-    background-color: #fff;
-    width: 200px;
-    height: 200px;
-    left: -60px;
-    top: -120px;
-    position: relative;
-    -webkit-box-shadow: 0px 2px 5px 0px rgba(0,0,0,0.75);
+  display: block;
+  border-radius: 100%;
+  border: 6px solid #83B8F4;
+  background-color: #fff;
+  width: 200px;
+  height: 200px;
+  left: -60px;
+  top: -120px;
+  position: relative;
+  -webkit-box-shadow: 0px 2px 5px 0px rgba(0,0,0,0.75);
   -moz-box-shadow: 0px 2px 5px 0px rgba(0,0,0,0.75);
   box-shadow: 0px 2px 5px 0px rgba(0,0,0,0.75);
 }
@@ -33,7 +32,7 @@
   width: 80px;
   position: absolute;
   right: 45px;
-  top: 105px;
+  top: 108px;
 }
 
 .account {
@@ -41,4 +40,73 @@
   top: 25px; 
   right: 30px;
   color: #4e79a9
+}
+
+.chart-wrap {
+  display: block;
+  position: relative;
+  margin: 30px;
+  height: 300px;
+}
+
+.chart-wrap section{
+  background-color: #fff;
+  width: 100%;
+  height: 300px;
+  margin: 10px 0 0 0;
+  border-radius: 10px;
+  -webkit-box-shadow: 0px 2px 5px 0px rgba(0,0,0,0.35);
+  -moz-box-shadow: 0px 2px 5px 0px rgba(0,0,0,0.35);
+  box-shadow: 0px 2px 5px 0px rgba(0,0,0,0.35);
+}
+
+.therapies-wrap {
+  position: relative;
+  display: block;
+  position: relative;
+  margin: 80px 30px 30px;
+  background-color: #fff;
+  border-radius: 10px;
+  -webkit-box-shadow: 0px 2px 5px 0px rgba(0,0,0,0.35);
+  -moz-box-shadow: 0px 2px 5px 0px rgba(0,0,0,0.35);
+  box-shadow: 0px 2px 5px 0px rgba(0,0,0,0.35);
+}
+
+.therapies-wrap h2 {
+  position: absolute;
+  top: -27px;
+  left: 0;
+}
+
+.therapies-wrap article {
+  width: 50%;
+  box-sizing: border-box;
+  display: inline-block;
+  padding: 15px;
+  height: 170px;
+}
+
+.breath {
+  border-right: 1px solid #E4E4E4;
+  border-bottom: 1px solid #E4E4E4;
+}
+
+.mind {
+  border-bottom: 1px solid #E4E4E4;
+}
+
+.sound {
+  border-right: 1px solid #E4E4E4;
+  border-bottom: 1px solid #E4E4E4;
+}
+
+.notes {
+  border-bottom: 1px solid #E4E4E4;
+}
+
+.sight {
+  border-right: 1px solid #E4E4E4;
+}
+
+.lifeline {
 }
