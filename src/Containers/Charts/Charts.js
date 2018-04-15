@@ -1,24 +1,34 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { VictoryChart, VictoryLine, VictoryScatter, VictoryZoomContainer } from 'victory';
+import {
+  VictoryChart,
+  VictoryLine,
+  VictoryScatter,
+  VictoryZoomContainer,
+  VictoryAxis,
+  VictoryBar
+} from 'victory';
 
-// const heartRate = [
-//   { time: '15:54:19', value: 75 },
-//   { time: '15:54:34', value: 75 },
-//   { time: '15:54:39', value: 74 },
-//   { time: '15:54:44', value: 73 },
-//   { time: '15:54:54', value: 74 },
-//   { time: '15:55:09', value: 74 },
-//   { time: '15:55:14', value: 76 },
-//   { time: '15:55:29', value: 76 },
-//   { time: '15:55:44', value: 76 },
-//   { time: '15:55:49', value: 77 },
-//   { time: '15:55:54', value: 78 }
-// ];
+const rawSteps = [
+  { time: '08:17:00', value: 21 },
+  { time: '08:18:00', value: 15 },
+  { time: '08:19:00', value: 23 },
+  { time: '08:20:00', value: 56 },
+  { time: '08:21:00', value: 3 },
+  { time: '08:22:00', value: 28 },
+  { time: '08:23:00', value: 12 },
+  { time: '08:24:00', value: 0 },
+  { time: '08:25:00', value: 21 },
+  { time: '08:26:00', value: 5 },
+  { time: '08:27:00', value: 0 },
+  { time: '08:28:00', value: 0 },
+  { time: '08:29:00', value: 13 },
+  { time: '08:30:00', value: 0 },
+  { time: '08:31:00', value: 0 },
+  { time: '08:32:00', value: 8 }
+];
 
-
-const chartHeartRate = (heartRate) => {
-  
+const chartHeartRate = heartRate => {
   return heartRate.map(beat => {
     const time = beat.time.split(':');
     const hours = Number(time[0]);
@@ -32,7 +42,7 @@ const chartHeartRate = (heartRate) => {
     } else if (hours === 0) {
       timeValue = '12';
     }
-  
+
     timeValue += minutes < 10 ? ':0' + minutes : ':' + minutes; // get minutes
     timeValue += seconds < 10 ? ':0' + seconds : ':' + seconds; // get seconds
     timeValue += hours >= 12 ? ' P.M.' : ' A.M.'; // get AM/PM
@@ -42,32 +52,32 @@ const chartHeartRate = (heartRate) => {
     };
     return newTime;
   });
-
 };
 
-
-
-export const Charts = (props) => ({
-  
+export const Charts = props => ({
   render() {
-    
-    
-   const heartLine =  chartHeartRate(props.heartRate);
-    
+    const heartLine = chartHeartRate(props.heartRate);
+
     return (
       <section>
         <VictoryChart
-        domain={{y: [0, 200]}}
-        containerComponent={<VictoryZoomContainer zoomDomain={{x: [5, 35], y: [0, 200]}}/>}
-      >
+          domain={{ y: [0, 200] }}
+          scale="time"
+          // containerComponent={
+          //   <VictoryZoomContainer zoomDomain={{ x: [5, 35], y: [0, 200] }} />
+          // }
+        >
+          <VictoryAxis dependentAxis />
+          <VictoryAxis label="Time" scale="time" />
           <VictoryLine
             interpolation="monotoneX"
             data={heartLine}
             style={{ data: { stroke: '#83B8F4' } }}
           />
-
-
-
+          {/* <VictoryBar
+          style={{ data: { fill: "#c43a31" } }}
+          data={stepsData}
+        /> */}
           {/* <VictoryScatter
             data={data}
             size={4}

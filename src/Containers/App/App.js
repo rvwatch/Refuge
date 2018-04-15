@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import { fetchData } from '../../ApiCalls/fetchCall';
 import { getHeartRate } from '../../ApiCalls/getHeartRate';
 import { getSteps } from '../../ApiCalls/getSteps';
-import {Route, Link, NavLink} from 'react-router-dom';
+import { Route, Link, NavLink } from 'react-router-dom';
 import * as Actions from '../../Actions/index';
 import Charts from '../../Containers/Charts/Charts';
 
@@ -34,18 +34,45 @@ export class App extends Component {
       );
 
     return (
-      <div className="App">
+      <section className="App">
         <header className="App-header">
-          <Link className='logo-wrap' to='/'>
-            <img className='logo' src={require('../../Assets/images/MainLogo.svg')} />
+          <Link className="logo-wrap" to="/">
+            <img
+              className="logo"
+              src={require('../../Assets/images/MainLogo.svg')}
+            />
           </Link>
-          <Link className='account' to='/settings'>
-            Welcome, Ricardo V. 
+          <Link className="account" to="/settings">
+            Welcome, Ricardo V.
           </Link>
-
         </header>
-        {/* <section className="chart-wrap">{chart}</section> */}
-      </div>
+
+        <section className="chart-wrap">
+          <h2>heart rate:</h2>
+          {chart}
+        </section>
+        <section className='therapies-wrap'>
+          <h2>therapies:</h2>
+          <article className='breath'>
+            <h3>breath</h3>
+          </article>
+          <article className='mind'>
+            <h3>mindfulness</h3>
+          </article>
+          <article className='sound'>
+            <h3>sound</h3>
+          </article>
+          <article className='notes'>
+            <h3>notes</h3>
+          </article>
+          <article className='sight'>
+            <h3>sight</h3>
+          </article>
+          <article className='lifeline'>
+            <h3>lifeline</h3>
+          </article>
+        </section>
+      </section>
     );
   }
 }
