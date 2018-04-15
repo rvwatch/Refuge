@@ -55,21 +55,46 @@ export class App extends Component {
           <h2>therapies:</h2>
           <article className='breath'>
             <h3>breath</h3>
+            <img
+              className="lungs-icon"
+              src={require('../../Assets/images/lungs.svg')}
+            />
+            <p></p>
           </article>
           <article className='mind'>
             <h3>mindfulness</h3>
+            <img
+              className="mindfulness-icon"
+              src={require('../../Assets/images/meditation.svg')}
+            />
           </article>
           <article className='sound'>
             <h3>sound</h3>
+            <img
+              className="sound-icon"
+              src={require('../../Assets/images/headphones.svg')}
+            />
           </article>
           <article className='notes'>
             <h3>notes</h3>
+            <img
+              className="notes-icon"
+              src={require('../../Assets/images/book.svg')}
+            />
           </article>
           <article className='sight'>
             <h3>sight</h3>
+            <img
+              className="sight-icon"
+              src={require('../../Assets/images/eyeglasses.svg')}
+            />
           </article>
           <article className='lifeline'>
             <h3>lifeline</h3>
+            <img
+              className="phone-icon"
+              src={require('../../Assets/images/call-answer.svg')}
+            />
           </article>
         </section>
       </section>
