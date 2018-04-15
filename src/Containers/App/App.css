@@ -84,15 +84,47 @@
   display: inline-block;
   padding: 15px;
   height: 170px;
+  transition: all .5s;
+}
+
+.therapies-wrap article:hover {
+  -webkit-box-shadow: 0px 2px 5px 0px rgba(0,0,0,0.35);
+  -moz-box-shadow: 0px 2px 5px 0px rgba(0,0,0,0.35);
+  box-shadow: 0px 2px 5px 0px rgba(0,0,0,0.35);
+  cursor: pointer;
+}
+
+.therapies-wrap article img {
+  display: block;
+  margin: auto;
+  transition: all .5s;
 }
 
 .breath {
   border-right: 1px solid #E4E4E4;
   border-bottom: 1px solid #E4E4E4;
+  border-top-left-radius: 10px;
+}
+
+.breath:hover {
+  border-top-left-radius: 10px;
+}
+
+.lungs-icon {
+  width: 120px; 
 }
 
 .mind {
   border-bottom: 1px solid #E4E4E4;
+}
+
+.mind:hover {
+  border-top-right-radius: 10px;
+}
+
+.therapies-wrap article .mindfulness-icon {
+  width: 100px; 
+  margin-top: 10px;
 }
 
 .sound {
@@ -100,13 +132,43 @@
   border-bottom: 1px solid #E4E4E4;
 }
 
+.sound-icon {
+  width: 100px; 
+}
+
 .notes {
   border-bottom: 1px solid #E4E4E4;
+}
+
+.notes-icon {
+  width: 80px; 
 }
 
 .sight {
   border-right: 1px solid #E4E4E4;
 }
 
+.sight:hover {
+  border-bottom-left-radius: 10px;
+}
+
+.therapies-wrap article .sight-icon {
+  width: 120px;
+  margin-top: 30px;
+}
+
 .lifeline {
+}
+
+.lifeline:hover {
+  border-bottom-right-radius: 10px;
+}
+
+
+.phone-icon {
+  width: 80px;
+}
+
+.lifeline:hover .phone-icon {
+  width: 100px;
 }
