@@ -1,9 +1,9 @@
-export const fetchData = async () => {
+export const getFitbitProfile = async () => {
   try {
     const response = await fetch('http://localhost:3000/fb-profile');
     const data = await response.json();
     return data;
   } catch (errs) {
-    throw new Error(errs);
+    throw errs.message;
   }
 };
