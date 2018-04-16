@@ -3,7 +3,6 @@ import { connect } from 'react-redux';
 import {
   VictoryChart,
   VictoryLine,
-  VictoryScatter,
   VictoryZoomContainer,
   VictoryAxis,
   VictoryBar
@@ -40,25 +39,39 @@ export const Charts = props => ({
   render() {
     const heartLine = chartData(props.heartRate);
     const stepLine = chartData(props.stepsTaken);
+    const restingLine = chartData(props.heartRate.map(beat => ({time: beat.time, value: parseInt(props.restingHeart)})));
 
-    const tickValue = props.heartRate.map(beat => beat.time);
-    console.log(tickValue);
-
+    
     return (
       <section className="chart-wrap">
         <h2>heart rate:</h2>
         <VictoryChart
-          // containerComponent={
-          //   <VictoryZoomContainer zoomDomain={{ x: [5, 35], y: [0, 200] }} />
-          // }
+          containerComponent={
+            <VictoryZoomContainer zoomDomain={{ x: [5, 35], y: [0, 200] }} />
+          }
         >
           {/* <VictoryAxis
             orientation='left'
             domain={[0, 220]}
             standalone={false}
           /> */}
+          
+
+
+          <VictoryLine
+            interpolation="monotoneX"
+            data={heartLine}
+            style={{ data: { stroke: '#83B8F4' } }}
+          />
+           <VictoryLine
+            interpolation="monotoneX"
+            data={restingLine}
+            style={{ data: { stroke: 'green' } }}
+          />
+          <VictoryBar style={{ data: { fill: '#c43a31' } }} data={stepLine} />
+
+          
           <VictoryAxis
-            standalone={false}
             tickFormat={(t) => {
               const num = t.split(':');
               if (num[1] === "00"){
@@ -72,14 +85,13 @@ export const Charts = props => ({
             dependentAxis
             orientation='left'
             domain={[0, 220]}
-            standalone={false}
           />
-          <VictoryLine
-            interpolation="monotoneX"
-            data={heartLine}
-            style={{ data: { stroke: '#83B8F4' } }}
+          <VictoryAxis
+            dependentAxis
+            orientation='right'
           />
-          <VictoryBar style={{ data: { fill: '#c43a31' } }} data={stepLine} />
+          
+
           {/* <VictoryScatter
             data={data}
             size={4}
@@ -93,7 +105,8 @@ export const Charts = props => ({
 
 const mapStateToProps = state => ({
   heartRate: state.heartRate,
-  stepsTaken: state.stepsTaken
+  stepsTaken: state.stepsTaken,
+  restingHeart: state.restingHeart
 });
 
 export default connect(mapStateToProps, null)(Charts);
