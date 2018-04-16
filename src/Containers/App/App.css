@@ -3,7 +3,7 @@
   height: 40px;
   padding: 20px;
   background: rgb(68,161,167);
-  background: -moz-linear-gradient(45deg, rgba(68,161,167,1) 0%, rgba(114,255,203,1) 100%);
+  background: -moz-linear-gradient(45deg, rgba(68,161,167,1) 0%, rgb(114, 255, 203) 100%);
   background: -webkit-linear-gradient(45deg, rgba(68,161,167,1) 0%,rgba(114,255,203,1) 100%);
   background: linear-gradient(45deg, rgba(68,161,167,1) 0%,rgba(114,255,203,1) 100%);
   -webkit-box-shadow: 0px 2px 5px 0px rgba(0,0,0,0.35);

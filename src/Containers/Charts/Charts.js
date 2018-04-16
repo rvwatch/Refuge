@@ -69,7 +69,11 @@ export const Charts = props => ({
             data={restingLine}
             style={{ data: { stroke: 'green' } }}
           />
-          <VictoryBar style={{ data: { fill: '#c43a31' } }} data={stepLine} />
+          <VictoryBar 
+            barRatio={2}
+            style={{ data: { fill: '#c43a31' } }} 
+            data={stepLine} 
+          />
 
           
           <VictoryAxis
