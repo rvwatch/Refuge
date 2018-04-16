@@ -46,9 +46,10 @@ export const Charts = props => ({
       <section className="chart-wrap">
         <h2>heart rate:</h2>
         <VictoryChart
-          containerComponent={
-            <VictoryZoomContainer zoomDomain={{ x: [5, 35], y: [0, 200] }} />
-          }
+        height={375} width={2000}
+          // containerComponent={
+          //   <VictoryZoomContainer zoomDomain={{ x: [5, 35], y: [0, 200] }} />
+          // }
         >
           {/* <VictoryAxis
             orientation='left'
