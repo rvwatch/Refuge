@@ -7,6 +7,6 @@ export const getCurrentUser = async () => {
     const user = await response.json();
     return user;
   } catch (errs) {
-    throw new Error(errs);
+    throw errs.message;
   }
 };

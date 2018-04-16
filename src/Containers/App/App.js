@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 import './App.css';
 import { connect } from 'react-redux';
-import { fetchData } from '../../ApiCalls/fetchCall';
+import { getFitbitProfile } from '../../ApiCalls/getFitbitProfile';
 import { getHeartRate } from '../../ApiCalls/getHeartRate';
 import { getCurrentUser } from '../../ApiCalls/getCurrentUser';
 import { getSteps } from '../../ApiCalls/getSteps';
-import { Route, NavLink, Switch, withRouter } from 'react-router-dom';
+import { Route, NavLink, Switch, withRouter, Link } from 'react-router-dom';
 import { Breath } from '../../Components/Breath/Breath';
 import { Mindfulness } from '../../Components/Mindulness/Mindfulness';
 import { Sound } from '../../Components/Sound/Sound';
@@ -24,8 +24,8 @@ export class App extends Component {
     }
   }
   async componentDidMount() {
-    const fitbitData = await fetchData();
-    
+    if (this.props.user.length) {
+    const fitbitData = await getFitbitProfile();
     const userData = {
       user: fitbitData.user.displayName,
       avgSteps: fitbitData.user.averageDailySteps
@@ -40,15 +40,13 @@ export class App extends Component {
     this.props.addRestingHeart(restingHeart);
     this.props.addStepsTaken(stepsTaken);
     
-    const currentUser = await getCurrentUser();
-    this.props.addUser(currentUser);
-    //run the setInterval function that calls the fetch
-
-    
+    // const currentUser = await getCurrentUser();
+    // this.props.addUser(currentUser);
+  }
   }
 
   async componentWillReceiveProps(nextProps) {
-    if (this.props.heartRate !== nextProps.heartRate) {
+    if (this.props.user.length && this.props.heartRate !== nextProps.heartRate) {
       let self = this;
       setTimeout(async function() {
         console.log("changed");
@@ -86,9 +84,10 @@ export class App extends Component {
               src={require('../../Assets/images/MainLogo.svg')}
             />
           </NavLink>
-          <NavLink className="account" to="/login">
-            Login
-          </NavLink>
+          <div className="account">
+            <a href='http://localhost:3000/logout'>Logout </a>
+            <Link to="/login"> Login </Link>
+          </div>
         </header>
         {loggedIn}
         <Switch>
@@ -116,7 +115,6 @@ export const mapDispatchToProps = dispatch => ({
   addFitBitData: data => dispatch(Actions.addFitBitData(data)),
   addHeartRate: heartRate => dispatch(Actions.addHeartRate(heartRate)),
   addStepsTaken: stepsTaken => dispatch(Actions.addStepsTaken(stepsTaken)),
-  addUser: user => dispatch(Actions.addUser(user)),
   addRestingHeart: restingHeart =>
     dispatch(Actions.addRestingHeart(restingHeart))
 });

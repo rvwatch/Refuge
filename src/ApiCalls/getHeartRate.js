@@ -4,6 +4,6 @@ export const getHeartRate = async () => {
     const heartRate = await response.json();
     return heartRate;
   } catch (errs) {
-    throw new Error(errs);
+    throw errs.message;
   }
 };
