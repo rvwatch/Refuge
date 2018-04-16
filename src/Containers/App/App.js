@@ -3,10 +3,23 @@ import './App.css';
 import { connect } from 'react-redux';
 import { fetchData } from '../../ApiCalls/fetchCall';
 import { getHeartRate } from '../../ApiCalls/getHeartRate';
+import { getCurrentUser } from '../../ApiCalls/getCurrentUser';
 import { getSteps } from '../../ApiCalls/getSteps';
-import { Route, Link, NavLink } from 'react-router-dom';
+import {
+  Route,
+  NavLink,
+  Switch,
+  withRouter
+} from 'react-router-dom';
+import { Breath } from '../../Components/Breath/Breath';
+import { Mindfulness } from '../../Components/Mindulness/Mindfulness';
+import { Sound } from '../../Components/Sound/Sound';
+import { Journal } from '../../Components/Journal/Journal';
+import { Videos } from '../../Components/Videos/Videos';
+import { Lifeline } from '../../Components/Lifeline/Lifeline';
+import Main from '../../Components/Main/Main';
 import * as Actions from '../../Actions/index';
-import Charts from '../../Containers/Charts/Charts';
+import { LoginContainer } from '../LoginContainer/LoginContainer';
 
 export class App extends Component {
   async componentDidMount() {
@@ -19,84 +32,46 @@ export class App extends Component {
     };
     const stepsTaken = rawStepData['activities-steps-intraday'].dataset;
     const heartRate = rawHeartRate['activities-heart-intraday'].dataset;
-
     this.props.addFitBitData(userData);
     this.props.addHeartRate(heartRate);
     this.props.addStepsTaken(stepsTaken);
+    const currentUser = await getCurrentUser();
+    this.props.addUser(currentUser);
   }
 
   render() {
-    const chart =
-      this.props.heartRate.length && this.props.stepsTaken.length ? (
-        <Charts />
-      ) : (
-        'Loading'
-      );
+   
+    const { heartRate, stepsTaken, user } = this.props;
+
+    const loggedIn =
+    user.username && heartRate.length && stepsTaken.length ? 
+    <Route exact path='/' render={() => <Main /> } /> 
+    : <Route exact path='/' render={() => <LoginContainer /> } />;
 
     return (
       <section className="App">
         <header className="App-header">
-          <Link className="logo-wrap" to="/">
+          <NavLink className="logo-wrap" to="/">
             <img
+              alt="Icon"
               className="logo"
               src={require('../../Assets/images/MainLogo.svg')}
             />
-          </Link>
-          <Link className="account" to="/settings">
-            Welcome, Ricardo V.
-          </Link>
+          </NavLink>
+          <NavLink className="account" to="/login">
+            Login
+          </NavLink>
         </header>
-
-        <section className="chart-wrap">
-          <h2>heart rate:</h2>
-          {chart}
-        </section>
-        <section className='therapies-wrap'>
-          <h2>therapies:</h2>
-          <article className='breath'>
-            <h3>breath</h3>
-            <img
-              className="lungs-icon"
-              src={require('../../Assets/images/lungs.svg')}
-            />
-            <p></p>
-          </article>
-          <article className='mind'>
-            <h3>mindfulness</h3>
-            <img
-              className="mindfulness-icon"
-              src={require('../../Assets/images/meditation.svg')}
-            />
-          </article>
-          <article className='sound'>
-            <h3>sound</h3>
-            <img
-              className="sound-icon"
-              src={require('../../Assets/images/headphones.svg')}
-            />
-          </article>
-          <article className='notes'>
-            <h3>notes</h3>
-            <img
-              className="notes-icon"
-              src={require('../../Assets/images/book.svg')}
-            />
-          </article>
-          <article className='sight'>
-            <h3>sight</h3>
-            <img
-              className="sight-icon"
-              src={require('../../Assets/images/eyeglasses.svg')}
-            />
-          </article>
-          <article className='lifeline'>
-            <h3>lifeline</h3>
-            <img
-              className="phone-icon"
-              src={require('../../Assets/images/call-answer.svg')}
-            />
-          </article>
-        </section>
+        {loggedIn}
+        <Switch>
+          <Route exact path="/login" render={() => <LoginContainer />} />
+          <Route exact path="/breathing" render={() => <Breath />} />
+          <Route exact path="/mindfulness" component={Mindfulness} />
+          <Route exact path="/sound" component={Sound} />
+          <Route exact path="/journal" component={Journal} />
+          <Route exact path="/videos" component={Videos} />
+          <Route exact path="/support" component={Lifeline} />
+        </Switch>
       </section>
     );
   }
@@ -105,13 +80,15 @@ export class App extends Component {
 export const mapStateToProps = state => ({
   fitbitData: state.fitbitData,
   heartRate: state.heartRate,
-  stepsTaken: state.stepsTaken
+  stepsTaken: state.stepsTaken,
+  user: state.user
 });
 
 export const mapDispatchToProps = dispatch => ({
   addFitBitData: data => dispatch(Actions.addFitBitData(data)),
   addHeartRate: heartRate => dispatch(Actions.addHeartRate(heartRate)),
-  addStepsTaken: stepsTaken => dispatch(Actions.addStepsTaken(stepsTaken))
+  addStepsTaken: stepsTaken => dispatch(Actions.addStepsTaken(stepsTaken)),
+  addUser: user => dispatch(Actions.addUser(user))
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(App);
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(App));
