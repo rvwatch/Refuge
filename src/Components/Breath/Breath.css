@@ -1,0 +1,51 @@
+
+.box-breathing {
+  width: 50vmin;
+  height: 50vmin;
+  margin-top: -25vmin;
+  margin-left: -25vmin;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  border-radius: 50%;
+  border: 5px solid #708090;
+}
+.box-breathing::after {
+  box-sizing: border-box;
+  font-size: 40px;
+  padding-top: 21vmin;
+  width: 44vmin;
+  height: 44vmin;
+  margin-top: -22vmin;
+  margin-left: -22vmin;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  border-radius: 50%;
+  content: '';
+  text-align: center;
+  background: #87cefa;
+  -webkit-animation: box-breath 6s infinite;
+          animation: box-breath 6s infinite;
+}
+
+@-webkit-keyframes box-breath {
+  0%, 75%, 100% {
+    -webkit-transform: scale(0.3);
+            transform: scale(0.3);
+  }
+  25%, 50% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+}
+@keyframes box-breath {
+  0%, 75%, 100% {
+    -webkit-transform: scale(0.3);
+            transform: scale(0.3);
+  }
+  25%, 50% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+}
