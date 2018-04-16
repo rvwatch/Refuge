@@ -25,8 +25,8 @@
   content: '';
   text-align: center;
   background: #87cefa;
-  -webkit-animation: box-breath 6s infinite;
-          animation: box-breath 6s infinite;
+  -webkit-animation: box-breath 5.5s infinite;
+          animation: box-breath 5.5s infinite;
 }
 
 @-webkit-keyframes box-breath {

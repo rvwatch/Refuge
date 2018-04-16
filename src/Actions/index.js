@@ -17,3 +17,8 @@ export const addStepsTaken = steps => ({
   type: 'ADD_STEPS_TAKEN',
   steps
 });
+
+export const addRestingHeart = restingHeart => ({
+  type: 'ADD_RESTING_HEART',
+  restingHeart
+});
