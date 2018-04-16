@@ -17,39 +17,35 @@ import * as Actions from '../../Actions/index';
 import { LoginContainer } from '../LoginContainer/LoginContainer';
 
 export class App extends Component {
-  constructor(){
+  constructor() {
     super();
     this.state = {
       count: 0
-    }
+    };
   }
   async componentDidMount() {
-    if (this.props.user.length) {
-    const fitbitData = await getFitbitProfile();
-    const userData = {
-      user: fitbitData.user.displayName,
-      avgSteps: fitbitData.user.averageDailySteps
-    };
-    this.props.addFitBitData(userData);
-    const rawHeartRate = await getHeartRate();
-    const rawStepData = await getSteps();
-    const stepsTaken = rawStepData['activities-steps-intraday'].dataset;
-    const heartRate = rawHeartRate['activities-heart-intraday'].dataset;
-    const restingHeart = rawHeartRate['activities-heart'][0].value;
-    this.props.addHeartRate(heartRate);
-    this.props.addRestingHeart(restingHeart);
-    this.props.addStepsTaken(stepsTaken);
-    
-    // const currentUser = await getCurrentUser();
-    // this.props.addUser(currentUser);
-  }
+    const currentUser = await getCurrentUser();
+    this.props.addUser(currentUser);
+      const fitbitData = await getFitbitProfile();
+      const userData = {
+        user: fitbitData.user.displayName,
+        avgSteps: fitbitData.user.averageDailySteps
+      };
+      this.props.addFitBitData(userData);
+      const rawHeartRate = await getHeartRate();
+      const rawStepData = await getSteps();
+      const stepsTaken = rawStepData['activities-steps-intraday'].dataset;
+      const heartRate = rawHeartRate['activities-heart-intraday'].dataset;
+      const restingHeart = rawHeartRate['activities-heart'][0].value;
+      this.props.addHeartRate(heartRate);
+      this.props.addRestingHeart(restingHeart);
+      this.props.addStepsTaken(stepsTaken);
   }
 
   async componentWillReceiveProps(nextProps) {
-    if (this.props.user.length && this.props.heartRate !== nextProps.heartRate) {
+    if (this.props.heartRate !== nextProps.heartRate) {
       let self = this;
       setTimeout(async function() {
-        console.log("changed");
         const rawHeartRate = await getHeartRate();
         const rawStepData = await getSteps();
         const stepsTaken = rawStepData['activities-steps-intraday'].dataset;
@@ -61,14 +57,12 @@ export class App extends Component {
       }, 60 * 1000);
     }
   }
-   
-
 
   render() {
     const { heartRate, stepsTaken, user } = this.props;
 
     const loggedIn =
-      user.username && heartRate.length && stepsTaken.length ? (
+      heartRate.length && stepsTaken.length ? (
         <Route exact path="/" render={() => <Main />} />
       ) : (
         <Route exact path="/" render={() => <LoginContainer />} />
@@ -85,7 +79,7 @@ export class App extends Component {
             />
           </NavLink>
           <div className="account">
-            <a href='http://localhost:3000/logout'>Logout </a>
+            <a href="http://localhost:3000/logout">Logout </a>
             <Link to="/login"> Login </Link>
           </div>
         </header>
@@ -115,6 +109,7 @@ export const mapDispatchToProps = dispatch => ({
   addFitBitData: data => dispatch(Actions.addFitBitData(data)),
   addHeartRate: heartRate => dispatch(Actions.addHeartRate(heartRate)),
   addStepsTaken: stepsTaken => dispatch(Actions.addStepsTaken(stepsTaken)),
+  addUser: user => dispatch(Actions.addUser(user)),
   addRestingHeart: restingHeart =>
     dispatch(Actions.addRestingHeart(restingHeart))
 });

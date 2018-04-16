@@ -20,17 +20,9 @@ export class SignIn extends Component {
     });
   }
 
-  signInUser = async () => {
-    const currentUser = await getCurrentUser();
-    console.log(currentUser);
-    debugger;
-  
-    //props.addUser(currentUser);
-  };
-
   render() {
     return (
-      <form action="/login" method="post" onSubmit={this.signInUser}>
+      <form action="http://localhost:3000/login" method="post">
         <div>
           <input onChange={this.handleInput} type="text" placeholder='username' name='userName' value={this.state.userName} />
         </div>

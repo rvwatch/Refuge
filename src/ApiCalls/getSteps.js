@@ -4,6 +4,6 @@ export const getSteps = async () => {
     const steps = await response.json();
     return steps;
   } catch (errs) {
-    throw new Error(errs);
+    throw errs.message;
   }
 };
