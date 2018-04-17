@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import * as Actions from '../../../Actions/';
 import { postLogin } from '../../../ApiCalls/postLogin';
 import {object} from 'prop-types';
+import { withRouter } from 'react-router-dom';
 
 export class SignIn extends Component {
   constructor() {
@@ -29,7 +30,6 @@ export class SignIn extends Component {
       console.log(user.error);
       return;
     }
-
     this.props.addUser(user);
     this.props.history.push('/');
   }
@@ -63,4 +63,4 @@ SignIn.propTypes = {
   target: object
 };
 
-export default connect(null, mapDispatchToProps)(SignIn);
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(SignIn));

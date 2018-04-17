@@ -3,6 +3,10 @@ export const addUser = user => ({
   user
 });
 
+export const logoutUser = () => ({
+  type: 'LOGOUT_USER'
+});
+
 export const addFitBitData = user => ({
   type: 'ADD_FITBIT_DATA',
   user
@@ -17,7 +21,7 @@ export const addStepsTaken = steps => ({
   type: 'ADD_STEPS_TAKEN',
   steps
 });
-
+ 
 export const addRestingHeart = restingHeart => ({
   type: 'ADD_RESTING_HEART',
   restingHeart
