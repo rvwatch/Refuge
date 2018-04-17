@@ -1,14 +1,14 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import * as Actions from '../../../Actions/';
-import { getCurrentUser } from '../../../ApiCalls/getCurrentUser';
-import {object, array, string, func} from 'prop-types';
+import { postLogin } from '../../../ApiCalls/postLogin';
+import {object} from 'prop-types';
 
 export class SignIn extends Component {
   constructor() {
     super();
     this.state = {
-      userName: '',
+      username: '',
       password: ''
     };
   }
@@ -20,11 +20,25 @@ export class SignIn extends Component {
     });
   }
 
+  signInUser = async (event) => {
+    event.preventDefault();
+    const { username, password} = this.state;
+
+    const user = await postLogin(username, password);
+    if (user.error){
+      console.log(user.error);
+      return;
+    }
+
+    this.props.addUser(user);
+    this.props.history.push('/');
+  }
+
   render() {
     return (
-      <form action="http://localhost:3000/login" method="post">
+      <form onSubmit={this.signInUser}>
         <div>
-          <input onChange={this.handleInput} type="text" placeholder='username' name='userName' value={this.state.userName} />
+          <input onChange={this.handleInput} type="text" placeholder='username' name='username' value={this.state.username} />
         </div>
         <div>
           <input onChange={this.handleInput} type="password" placeholder='password' name='password' value={this.state.password} />

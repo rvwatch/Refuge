@@ -24,8 +24,9 @@ export class App extends Component {
     };
   }
   async componentDidMount() {
-    const currentUser = await getCurrentUser();
-    this.props.addUser(currentUser);
+    // const currentUser = await getCurrentUser();
+    // this.props.addUser(currentUser);
+    if (this.props.user && this.props.user.length) {
       const fitbitData = await getFitbitProfile();
       const userData = {
         user: fitbitData.user.displayName,
@@ -40,6 +41,7 @@ export class App extends Component {
       this.props.addHeartRate(heartRate);
       this.props.addRestingHeart(restingHeart);
       this.props.addStepsTaken(stepsTaken);
+    }
   }
 
   async componentWillReceiveProps(nextProps) {
@@ -62,7 +64,7 @@ export class App extends Component {
     const { heartRate, stepsTaken, user } = this.props;
 
     const loggedIn =
-      heartRate.length && stepsTaken.length ? (
+      heartRate && heartRate.length && stepsTaken && stepsTaken.length ? (
         <Route exact path="/" render={() => <Main />} />
       ) : (
         <Route exact path="/" render={() => <LoginContainer />} />
