@@ -18,7 +18,7 @@ describe('getCurrentUser', () => {
     const fetchBody = {
       method: "GET",
       credentials: 'include'
-    }
+    };
     await getCurrentUser();
     expect(window.fetch).toHaveBeenCalledWith(url, fetchBody);
   });

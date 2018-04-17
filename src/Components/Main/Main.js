@@ -2,6 +2,7 @@ import React from 'react';
 import { Link, withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 import Charts from '../../Containers/Charts/Charts';
+import { array } from 'prop-types';
 
 export const Main = (props) => {
   const charts =
@@ -10,7 +11,7 @@ export const Main = (props) => {
   ) : (
     'Loading'
   );
-   return (
+  return (
     <div>
       {charts}
       <section className="therapies-wrap">
@@ -68,11 +69,14 @@ export const Main = (props) => {
   );
 };
 
-export const mapStateToProps = (state, ownProps) => {
-  return {
-    heartRate: state.heartRate,
-    stepsTaken: state.stepsTaken
-  }
+export const mapStateToProps = 
+({heartRate, stepsTaken}) => ({heartRate, stepsTaken});
+
+
+Main.propTypes = {
+  heartRate: array,
+  stepsTaken: array
 };
+
 
 export default withRouter(connect(mapStateToProps, null)(Main));

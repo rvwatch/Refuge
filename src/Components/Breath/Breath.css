@@ -8,8 +8,9 @@
   top: 50%;
   left: 50%;
   border-radius: 50%;
-  border: 5px solid #708090;
+  border: 5px solid #87cefa;
 }
+
 .box-breathing::after {
   box-sizing: border-box;
   font-size: 40px;
@@ -24,7 +25,6 @@
   border-radius: 50%;
   content: '';
   text-align: center;
-  background: #87cefa;
   -webkit-animation: box-breath 5.5s infinite;
           animation: box-breath 5.5s infinite;
 }
@@ -33,12 +33,15 @@
   0%, 75%, 100% {
     -webkit-transform: scale(0.3);
             transform: scale(0.3);
+            background-color: #72ffcb;
   }
   25%, 50% {
     -webkit-transform: scale(1);
             transform: scale(1);
+            background-color: #87cefa;
   }
 }
+/* 
 @keyframes box-breath {
   0%, 75%, 100% {
     -webkit-transform: scale(0.3);
@@ -48,4 +51,4 @@
     -webkit-transform: scale(1);
             transform: scale(1);
   }
-}
+} */
