@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { array, string, object } from 'prop-types';
 import {
   VictoryChart,
   VictoryLine,
@@ -40,14 +41,17 @@ export const Charts = props => ({
   render() {
     const heartLine = chartData(props.heartRate);
     const stepLine = chartData(props.stepsTaken);
-    const restingLine = chartData(props.heartRate.map(beat => ({time: beat.time, value: parseInt(props.restingHeart, 10)})));
+    const restingLine = chartData(props.heartRate.map( beat => 
+      ({time: beat.time, 
+        value: parseInt(props.restingHeart, 10)
+      })));
  
     
     return (
       <section className="chart-wrap">
         <h2>heart rate:</h2>
         <VictoryChart
-        height={375} width={2000}
+          height={375} width={2000}
           // containerComponent={
           //   <VictoryZoomContainer zoomDomain={{ x: [5, 35], y: [0, 200] }} />
           // }
@@ -65,7 +69,7 @@ export const Charts = props => ({
             data={heartLine}
             style={{ data: { stroke: '#83B8F4' } }}
           />
-           <VictoryLine
+          <VictoryLine
             interpolation="monotoneX"
             data={restingLine}
             style={{ data: { stroke: 'green' } }}
@@ -78,13 +82,14 @@ export const Charts = props => ({
 
           
           <VictoryAxis
+          // eslint-disable-next-line
             tickFormat={(t) => {
               const num = t.split(':');
               if (num[1] === "00"){
                 return num[0];
               } else { return ''; }
             }
-          }
+            }
           />
           
           <VictoryAxis
@@ -116,8 +121,9 @@ const mapStateToProps = state => ({
 });
 
 Charts.propTypes = {
-  logoutUser: func,
-  history: object
+  heartRate: object,
+  stepsTaken: object,
+  restingHeart: string
 };
 
 export default connect(mapStateToProps, null)(Charts);
