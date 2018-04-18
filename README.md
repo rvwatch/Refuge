@@ -59,7 +59,7 @@ Jest & Enzyme
 
 ## Authors
 
-* **Ricard Viera** - _Built it all!_ - [rvwatch](https://github.com/rvwatch)
+* **Ricardo Viera** - _Built it all!_ - [rvwatch](https://github.com/rvwatch)
 
 ## Acknowledgments
 
