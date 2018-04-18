@@ -24,7 +24,6 @@ export class SignIn extends Component {
   signInUser = async event => {
     event.preventDefault();
     const { username, password } = this.state;
-    try {
       const user = await postLogin(username, password);
       this.props.addUser(user);
       this.props.setLoggedIn();
@@ -32,9 +31,6 @@ export class SignIn extends Component {
       if (user.error) {
         throw new Error('Login error');
       }
-    } catch (errs) {
-      this.props.addErrorMessage(errs.message);
-    }
   };
 
   render() {

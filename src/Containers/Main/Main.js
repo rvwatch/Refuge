@@ -2,69 +2,19 @@ import React from 'react';
 import { Link, withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 import Charts from '../Charts/Charts';
-import { array, func } from 'prop-types';
-import { getFitbitProfile } from '../../ApiCalls/getFitbitProfile';
-import { getHeartRate } from '../../ApiCalls/getHeartRate';
-import { getSteps } from '../../ApiCalls/getSteps';
+import { array, bool } from 'prop-types';
 import * as Actions from '../../Actions/index';
 
 export const Main = (props) => {
   
-  const setIntervalFun = () => {
-    console.log('in the fun times!!!');
-    
-    let minuteFetchCalls;
-    function stopFetchCalls() {
-      clearInterval(minuteFetchCalls);
-    }
-    
-    const runFetchCalls = async () => {
-      console.log('fetching');
-      
-      const fitbitData = await getFitbitProfile();
-      const userData = {
-        user: fitbitData.user.displayName,
-        avgSteps: fitbitData.user.averageDailySteps
-      };
-      props.addFitBitData(userData);
-      const rawHeartRate = await getHeartRate();
-      const rawStepData = await getSteps();
-      const stepsTaken = rawStepData['activities-steps-intraday'].dataset;
-      const heartRate = rawHeartRate['activities-heart-intraday'].dataset;
-      const restingHeart = rawHeartRate['activities-heart'][0].value;
-      props.addHeartRate(heartRate);
-      props.addRestingHeart(restingHeart);
-      props.addStepsTaken(stepsTaken);
-      if (!props.loggedIn){
-        console.log('Stopping the fetch calls!!! FINALLY!!!');
-        stopFetchCalls();
-      }
-    };
-    
-
-    if (!props.loggedIn){
-      console.log('in the first if');
-      
-      return;
-    } else {
-      console.log(props.loggedIn);
-      console.log('running the fetch stuff now');
-      minuteFetchCalls = setInterval(function(){ runFetchCalls(); }, 60000);
-      
-    }
-  };
-
-
   const charts =
   props.heartRate.length && props.stepsTaken.length ?
-    <Charts /> : <h2 className='loading'>Loading</h2>;
-  console.log(props);
+    <Charts /> : <h2 className='loading'>Loading Charts</h2>;
   
   return (
     <section className='main-wrap'>
       {charts}
       <section className="therapies-wrap">
-        {setIntervalFun()}
         <h2>therapies:</h2>
         <Link to="/breathing" className="breath">
           <h3>breathing exercises</h3>
@@ -106,14 +56,14 @@ export const Main = (props) => {
             src={require('../../Assets/images/eyeglasses.svg')}
           />
         </Link>
-        <Link to="/support" className="lifeline">
+        <a className="lifeline" href="tel:555-555-5555">
           <h3>support</h3>
           <img
             alt="Icon"
             className="phone-icon"
             src={require('../../Assets/images/call-answer.svg')}
           />
-        </Link>
+        </a>
         
       </section>
     </section>
@@ -136,7 +86,7 @@ export const mapDispatchToProps = dispatch => ({
 Main.propTypes = {
   heartRate: array,
   stepsTaken: array,
-  loggedIn: func
+  loggedIn: bool
 };
 
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Main));

@@ -8,6 +8,15 @@ ShallowWrapper {
     addFitBitData={[Function]}
     addHeartRate={[Function]}
     addStepsTaken={[Function]}
+    handleLogout={[Function]}
+    history={Object {}}
+    logoutUser={[Function]}
+    postLogout={[Function]}
+    user={
+        Object {
+            "username": "ricardo",
+          }
+    }
 />,
   Symbol(enzyme.__renderer__): Object {
     "batchedUpdates": [Function],
@@ -41,17 +50,12 @@ ShallowWrapper {
                     className="account"
           >
                     <a
-                              href="#"
+                              className="logout-btn"
                               onClick={[Function]}
+                              role="button"
                     >
                               Logout
                     </a>
-                    <Link
-                              replace={false}
-                              to="/login"
-                    >
-                               Login 
-                    </Link>
           </div>
 </header>,
         <Route
@@ -123,17 +127,12 @@ ShallowWrapper {
               className="account"
 >
               <a
-                            href="#"
+                            className="logout-btn"
                             onClick={[Function]}
+                            role="button"
               >
                             Logout
               </a>
-              <Link
-                            replace={false}
-                            to="/login"
-              >
-                             Login 
-              </Link>
 </div>,
           ],
           "className": "App-header",
@@ -176,51 +175,30 @@ ShallowWrapper {
             "key": undefined,
             "nodeType": "host",
             "props": Object {
-              "children": Array [
-                <a
-                  href="#"
-                  onClick={[Function]}
+              "children": <a
+                className="logout-btn"
+                onClick={[Function]}
+                role="button"
 >
-                  Logout
+                Logout
 </a>,
-                <Link
-                  replace={false}
-                  to="/login"
->
-                   Login 
-</Link>,
-              ],
               "className": "account",
             },
             "ref": null,
-            "rendered": Array [
-              Object {
-                "instance": null,
-                "key": undefined,
-                "nodeType": "host",
-                "props": Object {
-                  "children": "Logout",
-                  "href": "#",
-                  "onClick": [Function],
-                },
-                "ref": null,
-                "rendered": "Logout",
-                "type": "a",
+            "rendered": Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": "Logout",
+                "className": "logout-btn",
+                "onClick": [Function],
+                "role": "button",
               },
-              Object {
-                "instance": null,
-                "key": undefined,
-                "nodeType": "class",
-                "props": Object {
-                  "children": " Login ",
-                  "replace": false,
-                  "to": "/login",
-                },
-                "ref": null,
-                "rendered": " Login ",
-                "type": [Function],
-              },
-            ],
+              "ref": null,
+              "rendered": "Logout",
+              "type": "a",
+            },
             "type": "div",
           },
         ],
@@ -407,17 +385,12 @@ ShallowWrapper {
                         className="account"
             >
                         <a
-                                    href="#"
+                                    className="logout-btn"
                                     onClick={[Function]}
+                                    role="button"
                         >
                                     Logout
                         </a>
-                        <Link
-                                    replace={false}
-                                    to="/login"
-                        >
-                                     Login 
-                        </Link>
             </div>
 </header>,
           <Route
@@ -489,17 +462,12 @@ ShallowWrapper {
                 className="account"
 >
                 <a
-                                href="#"
+                                className="logout-btn"
                                 onClick={[Function]}
+                                role="button"
                 >
                                 Logout
                 </a>
-                <Link
-                                replace={false}
-                                to="/login"
-                >
-                                 Login 
-                </Link>
 </div>,
             ],
             "className": "App-header",
@@ -542,51 +510,30 @@ ShallowWrapper {
               "key": undefined,
               "nodeType": "host",
               "props": Object {
-                "children": Array [
-                  <a
-                    href="#"
-                    onClick={[Function]}
+                "children": <a
+                  className="logout-btn"
+                  onClick={[Function]}
+                  role="button"
 >
-                    Logout
+                  Logout
 </a>,
-                  <Link
-                    replace={false}
-                    to="/login"
->
-                     Login 
-</Link>,
-                ],
                 "className": "account",
               },
               "ref": null,
-              "rendered": Array [
-                Object {
-                  "instance": null,
-                  "key": undefined,
-                  "nodeType": "host",
-                  "props": Object {
-                    "children": "Logout",
-                    "href": "#",
-                    "onClick": [Function],
-                  },
-                  "ref": null,
-                  "rendered": "Logout",
-                  "type": "a",
+              "rendered": Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "children": "Logout",
+                  "className": "logout-btn",
+                  "onClick": [Function],
+                  "role": "button",
                 },
-                Object {
-                  "instance": null,
-                  "key": undefined,
-                  "nodeType": "class",
-                  "props": Object {
-                    "children": " Login ",
-                    "replace": false,
-                    "to": "/login",
-                  },
-                  "ref": null,
-                  "rendered": " Login ",
-                  "type": [Function],
-                },
-              ],
+                "ref": null,
+                "rendered": "Logout",
+                "type": "a",
+              },
               "type": "div",
             },
           ],

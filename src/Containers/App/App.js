@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import { connect } from 'react-redux';
-import { object, func } from 'prop-types';
+import { object, func, bool } from 'prop-types';
 import { postLogout } from '../../ApiCalls/postLogout';
 import { Route, NavLink, Switch, withRouter } from 'react-router-dom';
 import { Breath } from '../../Components/Breath/Breath';
@@ -10,6 +10,9 @@ import { Sound } from '../../Components/Sound/Sound';
 import { Journal } from '../../Components/Journal/Journal';
 import { Videos } from '../../Components/Videos/Videos';
 import { Lifeline } from '../../Components/Lifeline/Lifeline';
+import { getFitbitProfile } from '../../ApiCalls/getFitbitProfile';
+import { getHeartRate } from '../../ApiCalls/getHeartRate';
+import { getSteps } from '../../ApiCalls/getSteps';
 import { LoginContainer } from '../LoginContainer/LoginContainer';
 import Main from '../Main/Main';
 import * as Actions from '../../Actions/index';
@@ -21,31 +24,59 @@ export class App extends Component {
       loggedIn: false
     };
   }
-  
-  async componentDidUpdate() {
-    const {user} = this.props;
-    if (this.state.loggedIn){
+
+  async componentWillReceiveProps(nextProps) {
+    const { loggedIn, heartRate } = this.props;
+    if (heartRate.length) {
       return;
     }
-    if (user.username) {
-      this.setState({
-        loggedIn: true
-      });
+    if (loggedIn !== nextProps.loggedIn) {
+      const fitbitData = await getFitbitProfile();
+      const userData = {
+        user: fitbitData.user.displayName,
+        avgSteps: fitbitData.user.averageDailySteps
+      };
+      this.props.addFitBitData(userData);
+      const rawHeartRate = await getHeartRate();
+      const rawStepData = await getSteps();
+      const stepsTaken = rawStepData['activities-steps-intraday'].dataset;
+      const heartRate = rawHeartRate['activities-heart-intraday'].dataset;
+      const restingHeart = rawHeartRate['activities-heart'][0].value;
+      this.props.addHeartRate(heartRate);
+      this.props.addRestingHeart(restingHeart);
+      this.props.addStepsTaken(stepsTaken);
+      // if (!props.loggedIn){
+      //   console.log('Stopping the fetch calls!!! FINALLY!!!');
+      //   stopFetchCalls();
+      // }
+
+      // if (!props.loggedIn){
+      //   console.log('in the first if');
+      //   return;
+      // } else {
+      //   console.log(props.loggedIn);
+      //   console.log('running the fetch stuff now');
+      //   minuteFetchCalls = setInterval(function(){ runFetchCalls(); }, 60000);
+
+      // }
     }
   }
 
   handleLogout = () => {
     postLogout();
     this.props.logoutUser();
-    this.setState({
-      loggedIn: false
-    }, this.props.history.push('/'));
+    this.props.history.push('/');
   };
 
   render() {
-    const loggedIn = this.state.loggedIn ? (
-      <Route exact path="/" render={() => 
-        <Main setIntervalFun={this.setIntervalFun} />} />
+    console.log(this.props.loggedIn);
+    
+    const loggedIn = this.props.loggedIn ? (
+      <Route
+        exact
+        path="/"
+        render={() => <Main setIntervalFun={this.setIntervalFun} />}
+      />
     ) : (
       <Route exact path="/" render={() => <LoginContainer />} />
     );
@@ -61,11 +92,9 @@ export class App extends Component {
             />
           </NavLink>
           <div className="account">
-            <a role='button' 
-              className='logout-btn' 
-              onClick={this.handleLogout}>Logout
+            <a role="button" className="logout-btn" onClick={this.handleLogout}>
+              Logout
             </a>
-            {/* <Link to="/login"> Login </Link> */}
           </div>
         </header>
         {loggedIn}
@@ -87,7 +116,8 @@ export const mapStateToProps = state => ({
   fitbitData: state.fitbitData,
   heartRate: state.heartRate,
   stepsTaken: state.stepsTaken,
-  user: state.user
+  user: state.user,
+  loggedIn: state.loggedIn
 });
 
 export const mapDispatchToProps = dispatch => ({
@@ -101,7 +131,8 @@ export const mapDispatchToProps = dispatch => ({
 
 App.propTypes = {
   logoutUser: func,
-  history: object
+  history: object,
+  loggedIn: bool
 };
 
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(App));

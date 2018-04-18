@@ -110,6 +110,7 @@
   padding: 15px;
   height: 170px;
   transition: all .5s;
+  vertical-align: top;
 }
 
 .therapies-wrap a:hover {
@@ -142,6 +143,14 @@
 
 .lungs-icon {
   width: 120px; 
+}
+
+.breathe-wrap{
+  padding: 40px;
+  background-color: #fff;
+  position: relative;
+  margin: 1px 0 0 0;
+  height: 400px;
 }
 
 .mind {
@@ -209,6 +218,8 @@
 
 .lifeline {
   text-decoration: none; 
+  vertical-align: top;
+  color: #000;
 }
 
 .lifeline:hover {
@@ -265,13 +276,37 @@
     box-shadow: none;
   }
 
+  .main-wrap{
+    margin-top: 1px;
+  }
+
   .therapies-wrap {
     margin: 0;
     border-radius: 0;
+  }
+
+  .therapies-wrap h2 {
+    display: none;
   }
 
   .therapies-wrap a .mindfulness-icon {
     width: 80px;
     margin-top: 10px;
   }
+
+  .chart-wrap {
+    margin: 0;
+    height: auto;
+  }
+
+  .chart-wrap h2 {
+    display: none;
+  }
+
+  .VictoryContainer {
+    border-radius: 0 !important;
+    margin: 0;
+  }
+
+
 }

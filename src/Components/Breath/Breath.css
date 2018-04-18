@@ -13,8 +13,9 @@
 
 .box-breathing::after {
   box-sizing: border-box;
-  font-size: 40px;
-  padding-top: 21vmin;
+  font-size: 30px;
+  padding-top: 18vmin;
+  color: grey;
   width: 44vmin;
   height: 44vmin;
   margin-top: -22vmin;
@@ -23,7 +24,7 @@
   top: 50%;
   left: 50%;
   border-radius: 50%;
-  content: '';
+  content: 'breathe';
   text-align: center;
   -webkit-animation: box-breath 5.5s infinite;
           animation: box-breath 5.5s infinite;
@@ -41,14 +42,3 @@
             background-color: #87cefa;
   }
 }
-/* 
-@keyframes box-breath {
-  0%, 75%, 100% {
-    -webkit-transform: scale(0.3);
-            transform: scale(0.3);
-  }
-  25%, 50% {
-    -webkit-transform: scale(1);
-            transform: scale(1);
-  }
-} */
