@@ -245,3 +245,33 @@
   width: 150px; 
   margin: 60px auto;
 }
+
+@media screen and (max-width: 500px) {
+  
+  html{
+    height: 100%;
+  }
+
+  body {
+    background-color: #fff;
+    background: -moz-linear-gradient(45deg, rgba(68,161,167,1) 0%, rgb(114, 255, 203) 100%);
+  background: -webkit-linear-gradient(45deg, rgba(68,161,167,1) 0%,rgba(114,255,203,1) 100%);
+  background: linear-gradient(45deg, rgba(68,161,167,1) 0%,rgba(114,255,203,1) 100%);
+  }
+
+  .App-header{
+    background: none;
+    background-color: #E5F6FF;
+    box-shadow: none;
+  }
+
+  .therapies-wrap {
+    margin: 0;
+    border-radius: 0;
+  }
+
+  .therapies-wrap a .mindfulness-icon {
+    width: 80px;
+    margin-top: 10px;
+  }
+}
