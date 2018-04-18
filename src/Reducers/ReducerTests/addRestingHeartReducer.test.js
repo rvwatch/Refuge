@@ -5,21 +5,21 @@ import * as mock from '../../MockData';
 describe('addRestingHeartReducer', () => {
   it('should return a default state', () => {
     const expected = {};
-    expect(heartRateReducer(undefined, {})).toEqual(expected);
+    expect(addRestingHeartReducer(undefined, {})).toEqual(expected);
   });
 
   it('should add addRestingHeartReducer data to state', () => {
-    const expected = 
-    const mockHeartRate = [
-      { time: '00:02:00', value: 62 },
-      { time: '00:03:00', value: 62 },
-      { time: '00:04:00', value: 62 },
-      { time: '00:07:00', value: 62 },
-      { time: '00:08:00', value: 62 }
-    ];
-
+    const expected = mock.restingHeartRate;
+    const mockRestingHeartRate = mock.restingHeartRate;
     expect(
-      heartRateReducer(undefined, Actions.addHeartRate(mockHeartRate))
+      addRestingHeartReducer(undefined, Actions.addRestingHeart(mockRestingHeartRate))
+    ).toEqual(expected);
+  });
+
+  it('should replace state with an empty object on logout', () => {
+    const expected = {};
+    expect(
+      addRestingHeartReducer(undefined, Actions.logoutUser())
     ).toEqual(expected);
   });
 });
