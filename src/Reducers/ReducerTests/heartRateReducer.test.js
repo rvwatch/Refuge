@@ -18,7 +18,7 @@ describe('heartRateReducer', () => {
   });
 
   it('should replace state with an empty object on logout', () => {
-    const expected = {};
+    const expected = [];
     expect(
       heartRateReducer(undefined, Actions.logoutUser())
     ).toEqual(expected);

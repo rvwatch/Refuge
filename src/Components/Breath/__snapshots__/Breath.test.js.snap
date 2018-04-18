@@ -20,6 +20,7 @@ ShallowWrapper {
       "children": <div
         className="box-breathing"
 />,
+      "className": "breathe-wrap",
     },
     "ref": null,
     "rendered": Object {
@@ -44,6 +45,7 @@ ShallowWrapper {
         "children": <div
           className="box-breathing"
 />,
+        "className": "breathe-wrap",
       },
       "ref": null,
       "rendered": Object {

@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Main should match snapshot when heartrate and stepstaken are empty 1`] = `
+exports[`Main should match the snapshot 1`] = `
 ShallowWrapper {
   "length": 1,
   Symbol(enzyme.__root__): [Circular],
@@ -160,10 +160,9 @@ ShallowWrapper {
                               src="eyeglasses.svg"
                     />
           </Link>
-          <Link
+          <a
                     className="lifeline"
-                    replace={false}
-                    to="/support"
+                    href="tel:555-555-5555"
           >
                     <h3>
                               support
@@ -173,46 +172,10 @@ ShallowWrapper {
                               className="phone-icon"
                               src="call-answer.svg"
                     />
-          </Link>
-          <Switch>
-                    <Route
-                              exact={true}
-                              path="/login"
-                              render={[Function]}
-                    />
-                    <Route
-                              exact={true}
-                              path="/breathing"
-                              render={[Function]}
-                    />
-                    <Route
-                              component={[Function]}
-                              exact={true}
-                              path="/mindfulness"
-                    />
-                    <Route
-                              component={[Function]}
-                              exact={true}
-                              path="/sound"
-                    />
-                    <Route
-                              component={[Function]}
-                              exact={true}
-                              path="/journal"
-                    />
-                    <Route
-                              component={[Function]}
-                              exact={true}
-                              path="/videos"
-                    />
-                    <Route
-                              component={[Function]}
-                              exact={true}
-                              path="/support"
-                    />
-          </Switch>
+          </a>
 </section>,
       ],
+      "className": "main-wrap",
     },
     "ref": null,
     "rendered": Array [
@@ -304,10 +267,9 @@ ShallowWrapper {
                             src="eyeglasses.svg"
               />
 </Link>,
-            <Link
+            <a
               className="lifeline"
-              replace={false}
-              to="/support"
+              href="tel:555-555-5555"
 >
               <h3>
                             support
@@ -317,44 +279,7 @@ ShallowWrapper {
                             className="phone-icon"
                             src="call-answer.svg"
               />
-</Link>,
-            <Switch>
-              <Route
-                            exact={true}
-                            path="/login"
-                            render={[Function]}
-              />
-              <Route
-                            exact={true}
-                            path="/breathing"
-                            render={[Function]}
-              />
-              <Route
-                            component={[Function]}
-                            exact={true}
-                            path="/mindfulness"
-              />
-              <Route
-                            component={[Function]}
-                            exact={true}
-                            path="/sound"
-              />
-              <Route
-                            component={[Function]}
-                            exact={true}
-                            path="/journal"
-              />
-              <Route
-                            component={[Function]}
-                            exact={true}
-                            path="/videos"
-              />
-              <Route
-                            component={[Function]}
-                            exact={true}
-                            path="/support"
-              />
-</Switch>,
+</a>,
           ],
           "className": "therapies-wrap",
         },
@@ -614,7 +539,7 @@ ShallowWrapper {
           Object {
             "instance": null,
             "key": undefined,
-            "nodeType": "class",
+            "nodeType": "host",
             "props": Object {
               "children": Array [
                 <h3>
@@ -627,8 +552,7 @@ ShallowWrapper {
 />,
               ],
               "className": "lifeline",
-              "replace": false,
-              "to": "/support",
+              "href": "tel:555-555-5555",
             },
             "ref": null,
             "rendered": Array [
@@ -657,152 +581,13 @@ ShallowWrapper {
                 "type": "img",
               },
             ],
-            "type": [Function],
-          },
-          Object {
-            "instance": null,
-            "key": undefined,
-            "nodeType": "class",
-            "props": Object {
-              "children": Array [
-                <Route
-                  exact={true}
-                  path="/login"
-                  render={[Function]}
-/>,
-                <Route
-                  exact={true}
-                  path="/breathing"
-                  render={[Function]}
-/>,
-                <Route
-                  component={[Function]}
-                  exact={true}
-                  path="/mindfulness"
-/>,
-                <Route
-                  component={[Function]}
-                  exact={true}
-                  path="/sound"
-/>,
-                <Route
-                  component={[Function]}
-                  exact={true}
-                  path="/journal"
-/>,
-                <Route
-                  component={[Function]}
-                  exact={true}
-                  path="/videos"
-/>,
-                <Route
-                  component={[Function]}
-                  exact={true}
-                  path="/support"
-/>,
-              ],
-            },
-            "ref": null,
-            "rendered": Array [
-              Object {
-                "instance": null,
-                "key": undefined,
-                "nodeType": "class",
-                "props": Object {
-                  "exact": true,
-                  "path": "/login",
-                  "render": [Function],
-                },
-                "ref": null,
-                "rendered": null,
-                "type": [Function],
-              },
-              Object {
-                "instance": null,
-                "key": undefined,
-                "nodeType": "class",
-                "props": Object {
-                  "exact": true,
-                  "path": "/breathing",
-                  "render": [Function],
-                },
-                "ref": null,
-                "rendered": null,
-                "type": [Function],
-              },
-              Object {
-                "instance": null,
-                "key": undefined,
-                "nodeType": "class",
-                "props": Object {
-                  "component": [Function],
-                  "exact": true,
-                  "path": "/mindfulness",
-                },
-                "ref": null,
-                "rendered": null,
-                "type": [Function],
-              },
-              Object {
-                "instance": null,
-                "key": undefined,
-                "nodeType": "class",
-                "props": Object {
-                  "component": [Function],
-                  "exact": true,
-                  "path": "/sound",
-                },
-                "ref": null,
-                "rendered": null,
-                "type": [Function],
-              },
-              Object {
-                "instance": null,
-                "key": undefined,
-                "nodeType": "class",
-                "props": Object {
-                  "component": [Function],
-                  "exact": true,
-                  "path": "/journal",
-                },
-                "ref": null,
-                "rendered": null,
-                "type": [Function],
-              },
-              Object {
-                "instance": null,
-                "key": undefined,
-                "nodeType": "class",
-                "props": Object {
-                  "component": [Function],
-                  "exact": true,
-                  "path": "/videos",
-                },
-                "ref": null,
-                "rendered": null,
-                "type": [Function],
-              },
-              Object {
-                "instance": null,
-                "key": undefined,
-                "nodeType": "class",
-                "props": Object {
-                  "component": [Function],
-                  "exact": true,
-                  "path": "/support",
-                },
-                "ref": null,
-                "rendered": null,
-                "type": [Function],
-              },
-            ],
-            "type": [Function],
+            "type": "a",
           },
         ],
         "type": "section",
       },
     ],
-    "type": "div",
+    "type": "section",
   },
   Symbol(enzyme.__nodes__): Array [
     Object {
@@ -888,10 +673,9 @@ ShallowWrapper {
                                     src="eyeglasses.svg"
                         />
             </Link>
-            <Link
+            <a
                         className="lifeline"
-                        replace={false}
-                        to="/support"
+                        href="tel:555-555-5555"
             >
                         <h3>
                                     support
@@ -901,46 +685,10 @@ ShallowWrapper {
                                     className="phone-icon"
                                     src="call-answer.svg"
                         />
-            </Link>
-            <Switch>
-                        <Route
-                                    exact={true}
-                                    path="/login"
-                                    render={[Function]}
-                        />
-                        <Route
-                                    exact={true}
-                                    path="/breathing"
-                                    render={[Function]}
-                        />
-                        <Route
-                                    component={[Function]}
-                                    exact={true}
-                                    path="/mindfulness"
-                        />
-                        <Route
-                                    component={[Function]}
-                                    exact={true}
-                                    path="/sound"
-                        />
-                        <Route
-                                    component={[Function]}
-                                    exact={true}
-                                    path="/journal"
-                        />
-                        <Route
-                                    component={[Function]}
-                                    exact={true}
-                                    path="/videos"
-                        />
-                        <Route
-                                    component={[Function]}
-                                    exact={true}
-                                    path="/support"
-                        />
-            </Switch>
+            </a>
 </section>,
         ],
+        "className": "main-wrap",
       },
       "ref": null,
       "rendered": Array [
@@ -1032,10 +780,9 @@ ShallowWrapper {
                                 src="eyeglasses.svg"
                 />
 </Link>,
-              <Link
+              <a
                 className="lifeline"
-                replace={false}
-                to="/support"
+                href="tel:555-555-5555"
 >
                 <h3>
                                 support
@@ -1045,44 +792,7 @@ ShallowWrapper {
                                 className="phone-icon"
                                 src="call-answer.svg"
                 />
-</Link>,
-              <Switch>
-                <Route
-                                exact={true}
-                                path="/login"
-                                render={[Function]}
-                />
-                <Route
-                                exact={true}
-                                path="/breathing"
-                                render={[Function]}
-                />
-                <Route
-                                component={[Function]}
-                                exact={true}
-                                path="/mindfulness"
-                />
-                <Route
-                                component={[Function]}
-                                exact={true}
-                                path="/sound"
-                />
-                <Route
-                                component={[Function]}
-                                exact={true}
-                                path="/journal"
-                />
-                <Route
-                                component={[Function]}
-                                exact={true}
-                                path="/videos"
-                />
-                <Route
-                                component={[Function]}
-                                exact={true}
-                                path="/support"
-                />
-</Switch>,
+</a>,
             ],
             "className": "therapies-wrap",
           },
@@ -1342,7 +1052,7 @@ ShallowWrapper {
             Object {
               "instance": null,
               "key": undefined,
-              "nodeType": "class",
+              "nodeType": "host",
               "props": Object {
                 "children": Array [
                   <h3>
@@ -1355,8 +1065,7 @@ ShallowWrapper {
 />,
                 ],
                 "className": "lifeline",
-                "replace": false,
-                "to": "/support",
+                "href": "tel:555-555-5555",
               },
               "ref": null,
               "rendered": Array [
@@ -1385,152 +1094,13 @@ ShallowWrapper {
                   "type": "img",
                 },
               ],
-              "type": [Function],
-            },
-            Object {
-              "instance": null,
-              "key": undefined,
-              "nodeType": "class",
-              "props": Object {
-                "children": Array [
-                  <Route
-                    exact={true}
-                    path="/login"
-                    render={[Function]}
-/>,
-                  <Route
-                    exact={true}
-                    path="/breathing"
-                    render={[Function]}
-/>,
-                  <Route
-                    component={[Function]}
-                    exact={true}
-                    path="/mindfulness"
-/>,
-                  <Route
-                    component={[Function]}
-                    exact={true}
-                    path="/sound"
-/>,
-                  <Route
-                    component={[Function]}
-                    exact={true}
-                    path="/journal"
-/>,
-                  <Route
-                    component={[Function]}
-                    exact={true}
-                    path="/videos"
-/>,
-                  <Route
-                    component={[Function]}
-                    exact={true}
-                    path="/support"
-/>,
-                ],
-              },
-              "ref": null,
-              "rendered": Array [
-                Object {
-                  "instance": null,
-                  "key": undefined,
-                  "nodeType": "class",
-                  "props": Object {
-                    "exact": true,
-                    "path": "/login",
-                    "render": [Function],
-                  },
-                  "ref": null,
-                  "rendered": null,
-                  "type": [Function],
-                },
-                Object {
-                  "instance": null,
-                  "key": undefined,
-                  "nodeType": "class",
-                  "props": Object {
-                    "exact": true,
-                    "path": "/breathing",
-                    "render": [Function],
-                  },
-                  "ref": null,
-                  "rendered": null,
-                  "type": [Function],
-                },
-                Object {
-                  "instance": null,
-                  "key": undefined,
-                  "nodeType": "class",
-                  "props": Object {
-                    "component": [Function],
-                    "exact": true,
-                    "path": "/mindfulness",
-                  },
-                  "ref": null,
-                  "rendered": null,
-                  "type": [Function],
-                },
-                Object {
-                  "instance": null,
-                  "key": undefined,
-                  "nodeType": "class",
-                  "props": Object {
-                    "component": [Function],
-                    "exact": true,
-                    "path": "/sound",
-                  },
-                  "ref": null,
-                  "rendered": null,
-                  "type": [Function],
-                },
-                Object {
-                  "instance": null,
-                  "key": undefined,
-                  "nodeType": "class",
-                  "props": Object {
-                    "component": [Function],
-                    "exact": true,
-                    "path": "/journal",
-                  },
-                  "ref": null,
-                  "rendered": null,
-                  "type": [Function],
-                },
-                Object {
-                  "instance": null,
-                  "key": undefined,
-                  "nodeType": "class",
-                  "props": Object {
-                    "component": [Function],
-                    "exact": true,
-                    "path": "/videos",
-                  },
-                  "ref": null,
-                  "rendered": null,
-                  "type": [Function],
-                },
-                Object {
-                  "instance": null,
-                  "key": undefined,
-                  "nodeType": "class",
-                  "props": Object {
-                    "component": [Function],
-                    "exact": true,
-                    "path": "/support",
-                  },
-                  "ref": null,
-                  "rendered": null,
-                  "type": [Function],
-                },
-              ],
-              "type": [Function],
+              "type": "a",
             },
           ],
           "type": "section",
         },
       ],
-      "type": "div",
+      "type": "section",
     },
   ],
   Symbol(enzyme.__options__): Object {
@@ -1542,5 +1112,3 @@ ShallowWrapper {
   },
 }
 `;
-
-exports[`Main should match the snapshot 1`] = `undefined`;

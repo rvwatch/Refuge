@@ -26,6 +26,7 @@ ShallowWrapper {
                 frameBorder="0"
                 height="315"
                 src="https://www.youtube-nocookie.com/embed/1dFvc42g8CA?rel=0&showinfo=0"
+                title="calming sound-track"
                 width="560"
         />
 </article>,
@@ -42,6 +43,7 @@ ShallowWrapper {
           frameBorder="0"
           height="315"
           src="https://www.youtube-nocookie.com/embed/1dFvc42g8CA?rel=0&showinfo=0"
+          title="calming sound-track"
           width="560"
 />,
         "className": "video-frame",
@@ -57,6 +59,7 @@ ShallowWrapper {
           "frameBorder": "0",
           "height": "315",
           "src": "https://www.youtube-nocookie.com/embed/1dFvc42g8CA?rel=0&showinfo=0",
+          "title": "calming sound-track",
           "width": "560",
         },
         "ref": null,
@@ -82,6 +85,7 @@ ShallowWrapper {
                     frameBorder="0"
                     height="315"
                     src="https://www.youtube-nocookie.com/embed/1dFvc42g8CA?rel=0&showinfo=0"
+                    title="calming sound-track"
                     width="560"
           />
 </article>,
@@ -98,6 +102,7 @@ ShallowWrapper {
             frameBorder="0"
             height="315"
             src="https://www.youtube-nocookie.com/embed/1dFvc42g8CA?rel=0&showinfo=0"
+            title="calming sound-track"
             width="560"
 />,
           "className": "video-frame",
@@ -113,6 +118,7 @@ ShallowWrapper {
             "frameBorder": "0",
             "height": "315",
             "src": "https://www.youtube-nocookie.com/embed/1dFvc42g8CA?rel=0&showinfo=0",
+            "title": "calming sound-track",
             "width": "560",
           },
           "ref": null,

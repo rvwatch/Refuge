@@ -17,7 +17,9 @@ ShallowWrapper {
     "key": undefined,
     "nodeType": "host",
     "props": Object {
-      "children": <h1>
+      "children": <h1
+        className="coming-soon"
+>
         Coming Soon!
 </h1>,
     },
@@ -28,6 +30,7 @@ ShallowWrapper {
       "nodeType": "host",
       "props": Object {
         "children": "Coming Soon!",
+        "className": "coming-soon",
       },
       "ref": null,
       "rendered": "Coming Soon!",
@@ -41,7 +44,9 @@ ShallowWrapper {
       "key": undefined,
       "nodeType": "host",
       "props": Object {
-        "children": <h1>
+        "children": <h1
+          className="coming-soon"
+>
           Coming Soon!
 </h1>,
       },
@@ -52,6 +57,7 @@ ShallowWrapper {
         "nodeType": "host",
         "props": Object {
           "children": "Coming Soon!",
+          "className": "coming-soon",
         },
         "ref": null,
         "rendered": "Coming Soon!",

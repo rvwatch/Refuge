@@ -9,7 +9,7 @@ import {
   VictoryLabel
 } from 'victory';
 
-const chartData = dataStream => {
+export const chartData = dataStream => {
   return dataStream.map(point => {
     const time = point.time.split(':');
     const hours = Number(time[0]);
