@@ -57,7 +57,7 @@ export const Main = (props) => {
 
   const charts =
   props.heartRate.length && props.stepsTaken.length ?
-    <Charts /> : <h2>Loading</h2>;
+    <Charts /> : <h2 className='loading'>Loading</h2>;
   console.log(props);
   
   return (

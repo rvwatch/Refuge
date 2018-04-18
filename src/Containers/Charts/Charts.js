@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { array, string, object } from 'prop-types';
+import { string, object } from 'prop-types';
 import {
   VictoryChart,
   VictoryLine,
@@ -52,18 +52,8 @@ export const Charts = props => ({
         <h2>heart rate:</h2>
         <VictoryChart
           height={375} width={2000}
-          // containerComponent={
-          //   <VictoryZoomContainer zoomDomain={{ x: [5, 35], y: [0, 200] }} />
-          // }
         >
-          {/* <VictoryAxis
-            orientation='left'
-            domain={[0, 220]}
-            standalone={false}
-          /> */}
           
-
-
           <VictoryLine
             interpolation="monotoneX"
             data={heartLine}
@@ -101,13 +91,6 @@ export const Charts = props => ({
             dependentAxis
             orientation='right'
           />
-          
-
-          {/* <VictoryScatter
-            data={data}
-            size={4}
-            style={{ data: { fill: '#29C94F' } }}
-          /> */}
         </VictoryChart>
       </section>
     );
