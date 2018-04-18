@@ -62,32 +62,38 @@ export class App extends Component {
       this.props.addHeartRate(heartRate);
       this.props.addRestingHeart(restingHeart);
       this.props.addStepsTaken(stepsTaken);
-      console.log('3 fetches run');
+      console.log('2 fetches run');
       
     }
   }
 
   async componentWillReceiveProps(nextProps) {
+    console.log(this.props);
+    
     const { heartRate, user } = this.props;
+    let self = this;
+    const minuteFetchCall = setTimeout(async() => {
+      console.log('running setTimeout!');
+      const rawHeartRate = await getHeartRate();
+      const rawStepData = await getSteps();
+      const stepsTaken = rawStepData['activities-steps-intraday'].dataset;
+      const heartRate = rawHeartRate['activities-heart-intraday'].dataset;
+      const restingHeart = rawHeartRate['activities-heart'][0].value;
+      self.props.addHeartRate(heartRate);
+      self.props.addRestingHeart(restingHeart);
+      self.props.addStepsTaken(stepsTaken);
+      console.log('2 more fetches run');
+    }, 60 * 1000);
+
+
     if (!user.username){
       return;
     }
     if (
       this.state.loggedIn && heartRate !== nextProps.heartRate
     ) {
-
-      let self = this;
-      setTimeout(async function() {
-        const rawHeartRate = await getHeartRate();
-        const rawStepData = await getSteps();
-        const stepsTaken = rawStepData['activities-steps-intraday'].dataset;
-        const heartRate = rawHeartRate['activities-heart-intraday'].dataset;
-        const restingHeart = rawHeartRate['activities-heart'][0].value;
-        self.props.addHeartRate(heartRate);
-        self.props.addRestingHeart(restingHeart);
-        self.props.addStepsTaken(stepsTaken);
-      }, 60 * 1000);
-      console.log('3 more fetches run');
+      minuteFetchCall();
+      
     }
   }
 
@@ -138,8 +144,7 @@ export class App extends Component {
     this.props.logoutUser();
     this.setState({
       loggedIn: false
-    });
-    this.props.history.push('/');
+    }, this.props.history.push('/'));
   };
 
   render() {

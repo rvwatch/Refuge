@@ -5,6 +5,7 @@ import * as Actions from '../../Actions/';
 import * as mock from '../../MockData/';
 
 describe('Main', () => {
+  
   let heartRate;
   let stepsTaken;
   let wrapper;

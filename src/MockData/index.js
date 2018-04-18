@@ -26,3 +26,5 @@ export const mockFitbitProfile = {
     strideLengthWalking: 72.7
   }
 };
+
+export const restingHeartRate = "72.34";

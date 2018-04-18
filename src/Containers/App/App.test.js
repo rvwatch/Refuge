@@ -9,15 +9,15 @@ describe('App', () => {
   let addHeartRate;
   let addStepsTaken;
   beforeEach(() => {
-  addFitBitData = jest.fn(); 
-  addHeartRate = jest.fn();
-  addStepsTaken = jest.fn();
+    addFitBitData = jest.fn(); 
+    addHeartRate = jest.fn();
+    addStepsTaken = jest.fn();
     wrapper = shallow(
       <App 
         addFitBitData={addFitBitData} 
         addHeartRate={addHeartRate} 
         addStepsTaken={addStepsTaken}
-        />,
+      />,
       {
         disableLifecycleMethods: true
       }

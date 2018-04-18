@@ -36,7 +36,8 @@ export class SignIn extends Component {
 
   render() {
     return (
-      <form onSubmit={this.signInUser}>
+      <form className='signin-form' onSubmit={this.signInUser}>
+        <h2>Sign-In</h2>
         <div>
           <input onChange={this.handleInput} type="text" placeholder='username' name='username' value={this.state.username} />
         </div>
@@ -44,7 +45,7 @@ export class SignIn extends Component {
           <input onChange={this.handleInput} type="password" placeholder='password' name='password' value={this.state.password} />
         </div>
         <div>
-          <input type="submit" value="Log In" />
+          <input className='submit-btn' type="submit" value="enter" />
         </div>
       </form>
     );
