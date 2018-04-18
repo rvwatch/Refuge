@@ -1,5 +1,5 @@
 import React from 'react';
-import {Main, mapStateToProps, mapDispatchToProps} from './Main';
+import { Main, mapStateToProps, mapDispatchToProps } from './Main';
 import { shallow } from 'enzyme';
 import * as Actions from '../../Actions/';
 import * as mock from '../../MockData/';
@@ -18,26 +18,65 @@ describe('Main', () => {
     expect(wrapper).toMatchSnapshot();
   });
 
-  it('should match snapshot when heartrate and stepstaken are empty', () => {
-    const heartrate = [];
-    const stepstaken = [];
-    wrapper = shallow(<Main heartRate={heartRate} stepsTaken={stepsTaken} />);
-    expect(wrapper).toMatchSnapshot();
-  });
-
   describe('mapStateToProps', () => {
     it('should add heartRate data to props', () => {
       const expected = mock.mockHeartRate;
-      const mockState = {heartRate: mock.mockHeartRate};
+      const mockState = { heartRate: mock.mockHeartRate };
       const mapped = mapStateToProps(mockState);
       expect(mapped.heartRate).toEqual(expected);
     });
 
     it('should add stepsTaken data to props', () => {
       const expected = mock.mockStepsTaken;
-      const mockState = {stepsTaken: mock.mockStepsTaken};
+      const mockState = { stepsTaken: mock.mockStepsTaken };
       const mapped = mapStateToProps(mockState);
       expect(mapped.stepsTaken).toEqual(expected);
+    });
+  });
+
+  describe('mapDispatchToProps', () => {
+    it('should call dispatch with correct params in addFitBitData', () => {
+      const mockDispatch = jest.fn();
+      const mockfitbitData = mock.mockFitbitProfile;
+      const expected = Actions.addFitBitData(mockfitbitData);
+      const mapped = mapDispatchToProps(mockDispatch);
+      mapped.addFitBitData(mockfitbitData);
+      expect(mockDispatch).toHaveBeenCalledWith(expected);
+    });
+
+    it('should call dispatch with correct params in addHeartRate', () => {
+      const mockDispatch = jest.fn();
+      const mockHeartRate = mock.mockHeartRate;
+      const expected = Actions.addHeartRate(mockHeartRate);
+      const mapped = mapDispatchToProps(mockDispatch);
+      mapped.addHeartRate(mockHeartRate);
+      expect(mockDispatch).toHaveBeenCalledWith(expected);
+    });
+
+    it('should call dispatch with correct params in addStepsTaken', () => {
+      const mockDispatch = jest.fn();
+      const mockStepsTaken = mock.mockStepsTaken;
+      const expected = Actions.addStepsTaken(mockStepsTaken);
+      const mapped = mapDispatchToProps(mockDispatch);
+      mapped.addStepsTaken(mockStepsTaken);
+      expect(mockDispatch).toHaveBeenCalledWith(expected);
+    });
+
+    it('should call dispatch with correct params in addRestingHeart', () => {
+      const mockDispatch = jest.fn();
+      const restingHeartRate = mock.restingHeartRate;
+      const expected = Actions.addRestingHeart(restingHeartRate);
+      const mapped = mapDispatchToProps(mockDispatch);
+      mapped.addRestingHeart(restingHeartRate);
+      expect(mockDispatch).toHaveBeenCalledWith(expected);
+    });
+
+    it('should call dispatch for logoutUser action', () => {
+      const mockDispatch = jest.fn();
+      const expected = Actions.logoutUser();
+      const mapped = mapDispatchToProps(mockDispatch);
+      mapped.logoutUser();
+      expect(mockDispatch).toHaveBeenCalledWith(expected);
     });
   });
 });

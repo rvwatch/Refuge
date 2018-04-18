@@ -1,7 +1,10 @@
+import  React from 'react';
+import {shallow} from 'enzyme';
 import {Lifeline} from './Lifeline';
 
 describe('Lifeline', () => {
   it('should match the snapshot', () => {
-    expect(Lifeline).toMatchSnapshot();
+    const wrapper = shallow(<Lifeline />);
+    expect(wrapper).toMatchSnapshot();
   });
 });

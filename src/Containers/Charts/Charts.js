@@ -1,9 +1,9 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { string, object } from 'prop-types';
 import {
   VictoryChart,
   VictoryLine,
-  VictoryZoomContainer,
   VictoryAxis,
   VictoryBar
 } from 'victory';
@@ -27,7 +27,9 @@ const chartData = dataStream => {
     timeValue += seconds < 10 ? ':0' + seconds : ':' + seconds; // get seconds
     timeValue += hours >= 12 ? ' P.M.' : ' A.M.'; // get AM/PM
     const newTime = {
+      // eslint-disable-next-line
       x: timeValue,
+      // eslint-disable-next-line
       y: point.value
     };
 
@@ -39,32 +41,25 @@ export const Charts = props => ({
   render() {
     const heartLine = chartData(props.heartRate);
     const stepLine = chartData(props.stepsTaken);
-    const restingLine = chartData(props.heartRate.map(beat => ({time: beat.time, value: parseInt(props.restingHeart)})));
-
+    const restingLine = chartData(props.heartRate.map( beat => 
+      ({time: beat.time, 
+        value: parseInt(props.restingHeart, 10)
+      })));
+ 
     
     return (
       <section className="chart-wrap">
         <h2>heart rate:</h2>
         <VictoryChart
-        height={375} width={2000}
-          // containerComponent={
-          //   <VictoryZoomContainer zoomDomain={{ x: [5, 35], y: [0, 200] }} />
-          // }
+          height={375} width={2000}
         >
-          {/* <VictoryAxis
-            orientation='left'
-            domain={[0, 220]}
-            standalone={false}
-          /> */}
           
-
-
           <VictoryLine
             interpolation="monotoneX"
             data={heartLine}
             style={{ data: { stroke: '#83B8F4' } }}
           />
-           <VictoryLine
+          <VictoryLine
             interpolation="monotoneX"
             data={restingLine}
             style={{ data: { stroke: 'green' } }}
@@ -77,13 +72,14 @@ export const Charts = props => ({
 
           
           <VictoryAxis
+          // eslint-disable-next-line
             tickFormat={(t) => {
               const num = t.split(':');
               if (num[1] === "00"){
                 return num[0];
               } else { return ''; }
             }
-          }
+            }
           />
           
           <VictoryAxis
@@ -95,13 +91,6 @@ export const Charts = props => ({
             dependentAxis
             orientation='right'
           />
-          
-
-          {/* <VictoryScatter
-            data={data}
-            size={4}
-            style={{ data: { fill: '#29C94F' } }}
-          /> */}
         </VictoryChart>
       </section>
     );
@@ -113,5 +102,11 @@ const mapStateToProps = state => ({
   stepsTaken: state.stepsTaken,
   restingHeart: state.restingHeart
 });
+
+Charts.propTypes = {
+  heartRate: object,
+  stepsTaken: object,
+  restingHeart: string
+};
 
 export default connect(mapStateToProps, null)(Charts);

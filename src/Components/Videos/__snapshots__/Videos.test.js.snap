@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Mindfulness should match the snapshot 1`] = `
+exports[`Videos should match the snapshot 1`] = `
 ShallowWrapper {
   "length": 1,
   Symbol(enzyme.__root__): [Circular],
@@ -25,7 +25,7 @@ ShallowWrapper {
                 allowFullScreen={true}
                 frameBorder="0"
                 height="315"
-                src="https://www.youtube-nocookie.com/embed/sz-cNBAK7Qs?rel=0&showinfo=0"
+                src="https://www.youtube-nocookie.com/embed/tk1p3fD-mtg?rel=0&showinfo=0"
                 width="560"
         />
 </article>,
@@ -41,7 +41,7 @@ ShallowWrapper {
           allowFullScreen={true}
           frameBorder="0"
           height="315"
-          src="https://www.youtube-nocookie.com/embed/sz-cNBAK7Qs?rel=0&showinfo=0"
+          src="https://www.youtube-nocookie.com/embed/tk1p3fD-mtg?rel=0&showinfo=0"
           width="560"
 />,
         "className": "video-frame",
@@ -56,7 +56,7 @@ ShallowWrapper {
           "allowFullScreen": true,
           "frameBorder": "0",
           "height": "315",
-          "src": "https://www.youtube-nocookie.com/embed/sz-cNBAK7Qs?rel=0&showinfo=0",
+          "src": "https://www.youtube-nocookie.com/embed/tk1p3fD-mtg?rel=0&showinfo=0",
           "width": "560",
         },
         "ref": null,
@@ -81,7 +81,7 @@ ShallowWrapper {
                     allowFullScreen={true}
                     frameBorder="0"
                     height="315"
-                    src="https://www.youtube-nocookie.com/embed/sz-cNBAK7Qs?rel=0&showinfo=0"
+                    src="https://www.youtube-nocookie.com/embed/tk1p3fD-mtg?rel=0&showinfo=0"
                     width="560"
           />
 </article>,
@@ -97,7 +97,7 @@ ShallowWrapper {
             allowFullScreen={true}
             frameBorder="0"
             height="315"
-            src="https://www.youtube-nocookie.com/embed/sz-cNBAK7Qs?rel=0&showinfo=0"
+            src="https://www.youtube-nocookie.com/embed/tk1p3fD-mtg?rel=0&showinfo=0"
             width="560"
 />,
           "className": "video-frame",
@@ -112,7 +112,7 @@ ShallowWrapper {
             "allowFullScreen": true,
             "frameBorder": "0",
             "height": "315",
-            "src": "https://www.youtube-nocookie.com/embed/sz-cNBAK7Qs?rel=0&showinfo=0",
+            "src": "https://www.youtube-nocookie.com/embed/tk1p3fD-mtg?rel=0&showinfo=0",
             "width": "560",
           },
           "ref": null,

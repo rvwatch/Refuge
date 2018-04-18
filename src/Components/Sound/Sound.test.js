@@ -1,7 +1,10 @@
+import  React from 'react';
+import {shallow} from 'enzyme';
 import {Sound} from './Sound';
 
 describe('Sound', () => {
   it('should match the snapshot', () => {
-    expect(Sound).toMatchSnapshot();
+    const wrapper = shallow(<Sound />);
+    expect(wrapper).toMatchSnapshot();
   });
 });

@@ -45,7 +45,6 @@ ShallowWrapper {
                               onClick={[Function]}
                     >
                               Logout
-                               
                     </a>
                     <Link
                               replace={false}
@@ -60,6 +59,43 @@ ShallowWrapper {
           path="/"
           render={[Function]}
 />,
+        <Switch>
+          <Route
+                    exact={true}
+                    path="/login"
+                    render={[Function]}
+          />
+          <Route
+                    exact={true}
+                    path="/breathing"
+                    render={[Function]}
+          />
+          <Route
+                    exact={true}
+                    path="/mindfulness"
+                    render={[Function]}
+          />
+          <Route
+                    exact={true}
+                    path="/sound"
+                    render={[Function]}
+          />
+          <Route
+                    exact={true}
+                    path="/journal"
+                    render={[Function]}
+          />
+          <Route
+                    exact={true}
+                    path="/videos"
+                    render={[Function]}
+          />
+          <Route
+                    exact={true}
+                    path="/support"
+                    render={[Function]}
+          />
+</Switch>,
       ],
       "className": "App",
     },
@@ -91,7 +127,6 @@ ShallowWrapper {
                             onClick={[Function]}
               >
                             Logout
-                             
               </a>
               <Link
                             replace={false}
@@ -147,7 +182,6 @@ ShallowWrapper {
                   onClick={[Function]}
 >
                   Logout
-                   
 </a>,
                 <Link
                   replace={false}
@@ -165,18 +199,12 @@ ShallowWrapper {
                 "key": undefined,
                 "nodeType": "host",
                 "props": Object {
-                  "children": Array [
-                    "Logout",
-                    " ",
-                  ],
+                  "children": "Logout",
                   "href": "#",
                   "onClick": [Function],
                 },
                 "ref": null,
-                "rendered": Array [
-                  "Logout",
-                  " ",
-                ],
+                "rendered": "Logout",
                 "type": "a",
               },
               Object {
@@ -209,6 +237,145 @@ ShallowWrapper {
         },
         "ref": null,
         "rendered": null,
+        "type": [Function],
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "class",
+        "props": Object {
+          "children": Array [
+            <Route
+              exact={true}
+              path="/login"
+              render={[Function]}
+/>,
+            <Route
+              exact={true}
+              path="/breathing"
+              render={[Function]}
+/>,
+            <Route
+              exact={true}
+              path="/mindfulness"
+              render={[Function]}
+/>,
+            <Route
+              exact={true}
+              path="/sound"
+              render={[Function]}
+/>,
+            <Route
+              exact={true}
+              path="/journal"
+              render={[Function]}
+/>,
+            <Route
+              exact={true}
+              path="/videos"
+              render={[Function]}
+/>,
+            <Route
+              exact={true}
+              path="/support"
+              render={[Function]}
+/>,
+          ],
+        },
+        "ref": null,
+        "rendered": Array [
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "class",
+            "props": Object {
+              "exact": true,
+              "path": "/login",
+              "render": [Function],
+            },
+            "ref": null,
+            "rendered": null,
+            "type": [Function],
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "class",
+            "props": Object {
+              "exact": true,
+              "path": "/breathing",
+              "render": [Function],
+            },
+            "ref": null,
+            "rendered": null,
+            "type": [Function],
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "class",
+            "props": Object {
+              "exact": true,
+              "path": "/mindfulness",
+              "render": [Function],
+            },
+            "ref": null,
+            "rendered": null,
+            "type": [Function],
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "class",
+            "props": Object {
+              "exact": true,
+              "path": "/sound",
+              "render": [Function],
+            },
+            "ref": null,
+            "rendered": null,
+            "type": [Function],
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "class",
+            "props": Object {
+              "exact": true,
+              "path": "/journal",
+              "render": [Function],
+            },
+            "ref": null,
+            "rendered": null,
+            "type": [Function],
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "class",
+            "props": Object {
+              "exact": true,
+              "path": "/videos",
+              "render": [Function],
+            },
+            "ref": null,
+            "rendered": null,
+            "type": [Function],
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "class",
+            "props": Object {
+              "exact": true,
+              "path": "/support",
+              "render": [Function],
+            },
+            "ref": null,
+            "rendered": null,
+            "type": [Function],
+          },
+        ],
         "type": [Function],
       },
     ],
@@ -244,7 +411,6 @@ ShallowWrapper {
                                     onClick={[Function]}
                         >
                                     Logout
-                                     
                         </a>
                         <Link
                                     replace={false}
@@ -259,6 +425,43 @@ ShallowWrapper {
             path="/"
             render={[Function]}
 />,
+          <Switch>
+            <Route
+                        exact={true}
+                        path="/login"
+                        render={[Function]}
+            />
+            <Route
+                        exact={true}
+                        path="/breathing"
+                        render={[Function]}
+            />
+            <Route
+                        exact={true}
+                        path="/mindfulness"
+                        render={[Function]}
+            />
+            <Route
+                        exact={true}
+                        path="/sound"
+                        render={[Function]}
+            />
+            <Route
+                        exact={true}
+                        path="/journal"
+                        render={[Function]}
+            />
+            <Route
+                        exact={true}
+                        path="/videos"
+                        render={[Function]}
+            />
+            <Route
+                        exact={true}
+                        path="/support"
+                        render={[Function]}
+            />
+</Switch>,
         ],
         "className": "App",
       },
@@ -290,7 +493,6 @@ ShallowWrapper {
                                 onClick={[Function]}
                 >
                                 Logout
-                                 
                 </a>
                 <Link
                                 replace={false}
@@ -346,7 +548,6 @@ ShallowWrapper {
                     onClick={[Function]}
 >
                     Logout
-                     
 </a>,
                   <Link
                     replace={false}
@@ -364,18 +565,12 @@ ShallowWrapper {
                   "key": undefined,
                   "nodeType": "host",
                   "props": Object {
-                    "children": Array [
-                      "Logout",
-                      " ",
-                    ],
+                    "children": "Logout",
                     "href": "#",
                     "onClick": [Function],
                   },
                   "ref": null,
-                  "rendered": Array [
-                    "Logout",
-                    " ",
-                  ],
+                  "rendered": "Logout",
                   "type": "a",
                 },
                 Object {
@@ -408,6 +603,145 @@ ShallowWrapper {
           },
           "ref": null,
           "rendered": null,
+          "type": [Function],
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "class",
+          "props": Object {
+            "children": Array [
+              <Route
+                exact={true}
+                path="/login"
+                render={[Function]}
+/>,
+              <Route
+                exact={true}
+                path="/breathing"
+                render={[Function]}
+/>,
+              <Route
+                exact={true}
+                path="/mindfulness"
+                render={[Function]}
+/>,
+              <Route
+                exact={true}
+                path="/sound"
+                render={[Function]}
+/>,
+              <Route
+                exact={true}
+                path="/journal"
+                render={[Function]}
+/>,
+              <Route
+                exact={true}
+                path="/videos"
+                render={[Function]}
+/>,
+              <Route
+                exact={true}
+                path="/support"
+                render={[Function]}
+/>,
+            ],
+          },
+          "ref": null,
+          "rendered": Array [
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "class",
+              "props": Object {
+                "exact": true,
+                "path": "/login",
+                "render": [Function],
+              },
+              "ref": null,
+              "rendered": null,
+              "type": [Function],
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "class",
+              "props": Object {
+                "exact": true,
+                "path": "/breathing",
+                "render": [Function],
+              },
+              "ref": null,
+              "rendered": null,
+              "type": [Function],
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "class",
+              "props": Object {
+                "exact": true,
+                "path": "/mindfulness",
+                "render": [Function],
+              },
+              "ref": null,
+              "rendered": null,
+              "type": [Function],
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "class",
+              "props": Object {
+                "exact": true,
+                "path": "/sound",
+                "render": [Function],
+              },
+              "ref": null,
+              "rendered": null,
+              "type": [Function],
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "class",
+              "props": Object {
+                "exact": true,
+                "path": "/journal",
+                "render": [Function],
+              },
+              "ref": null,
+              "rendered": null,
+              "type": [Function],
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "class",
+              "props": Object {
+                "exact": true,
+                "path": "/videos",
+                "render": [Function],
+              },
+              "ref": null,
+              "rendered": null,
+              "type": [Function],
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "class",
+              "props": Object {
+                "exact": true,
+                "path": "/support",
+                "render": [Function],
+              },
+              "ref": null,
+              "rendered": null,
+              "type": [Function],
+            },
+          ],
           "type": [Function],
         },
       ],

@@ -3,7 +3,7 @@
   background-color: rgba(255,255,255,.7);
   display:block;
   margin: 50px auto;
-  padding: 40px;
+  padding: 40px 0 20px 0;
   text-align: center;
   border-radius: 10px;
   -webkit-box-shadow: 0px 2px 5px 0px rgba(0,0,0,0.35);
@@ -14,4 +14,31 @@
 .login-wrap div {
   margin: 10px 0;
   display: block;
+}
+
+.signin-form {
+  text-align: left;
+  width: 200px;
+  margin: auto;
+}
+
+.signin-form h2 {
+  color: #656565;
+  margin: -20px 0 20px 0;
+}
+
+.signin-form input {
+  background-color: transparent;
+  border: none;
+  font-size: 18px;
+  border-bottom: 1px solid #656565;
+}
+
+.signin-form .submit-btn {
+  border: 3px solid #656565;
+  font-size: 20px;
+  background-color: transparent;
+  border-radius: 5px;
+  padding: 0px 10px 2px 10px;
+  margin-top: 20px;
 }

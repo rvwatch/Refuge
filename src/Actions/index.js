@@ -3,8 +3,13 @@ export const addUser = user => ({
   user
 });
 
+export const setLoggedIn = () => ({
+  type: 'SET_LOGGED_IN'
+});
+
 export const logoutUser = () => ({
-  type: 'LOGOUT_USER'
+  type: 'LOGOUT_USER',
+  user: {}
 });
 
 export const addFitBitData = user => ({
@@ -25,4 +30,9 @@ export const addStepsTaken = steps => ({
 export const addRestingHeart = restingHeart => ({
   type: 'ADD_RESTING_HEART',
   restingHeart
+});
+
+export const addErrorMessage = error => ({
+  type: 'ADD_ERROR',
+  error
 });

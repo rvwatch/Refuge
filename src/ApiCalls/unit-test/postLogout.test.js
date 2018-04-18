@@ -1,32 +1,26 @@
-import { postLogin } from '../postLogin';
-import * as mock from '../../MockData/';
-  
-describe('postLogin', () => {
-  let mockUser;
+import { postLogout } from '../postLogout';
+
+describe('postLogout', () => {
   beforeEach(() => {
-    mockUser = mock.user;
     window.fetch = jest.fn().mockImplementation(() => ({
       status: 200,
       json: () =>
         new Promise(resolve => {
-          resolve( mockUser );
+          resolve({});
         })
     }));
   });
 
   it('should fetch with the correct params', async () => {
-    const url = `http://localhost:3000/login`;
-    const fetchBody = {"body": "username=undefined&password=undefined", 
-      "headers": 
-      {"Content-Type": "application/x-www-form-urlencoded;charset=UTF-8"}, 
-      "method": "POST"};
-    await postLogin();
+    const url = `http://localhost:3000/logout`;
+    const fetchBody = { "method": "POST"};
+    await postLogout();
     expect(window.fetch).toHaveBeenCalledWith(url, fetchBody);
   });
 
-  it('should return a user on successful post', async () => {
-    const expected = mockUser;
-    const result = await postLogin(mockUser);
+  it('should return an empty object', async () => {
+    const expected = {};
+    const result = await postLogout();
     expect(result).toEqual(expected);
   });
 
@@ -39,7 +33,7 @@ describe('postLogin', () => {
     );
     
     const expected = "error";
-    const result = postLogin(mockUser);
+    const result = postLogout();
     expect(result).rejects.toEqual(expected);
   });
 

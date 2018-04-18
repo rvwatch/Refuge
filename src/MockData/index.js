@@ -19,10 +19,10 @@ export const mockStepsTaken = [
 ];
 
 export const mockFitbitProfile = {
-  user: {
-    displayName: 'Ricardo V.',
-    height: 175.3,
-    memberSince: '2018-04-06',
-    strideLengthWalking: 72.7
-  }
+  user: 'Ricardo V.',
+  avgSteps: 8150
 };
+
+export const restingHeartRate = "72.34";
+
+export const user = {username: 'ricardo'};
