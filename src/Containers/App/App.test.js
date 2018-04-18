@@ -31,6 +31,7 @@ describe('App', () => {
         addStepsTaken={addStepsTaken}
         postLogout={postLogout}
         user={mock.user}
+        
       />,
       {
         disableLifecycleMethods: true
@@ -43,7 +44,6 @@ describe('App', () => {
   });
 
   it('should logout a user', () => {
-
     wrapper.state().loggedIn = true;
     expect(wrapper.state().loggedIn).toEqual(true);
     const spy = jest.spyOn(wrapper.instance(), 'handleLogout'); 
@@ -51,6 +51,13 @@ describe('App', () => {
     wrapper.instance('handleLogout'); 
     expect(spy).toHaveBeenCalled();
   });
+
+
+  it('should call getFitbitProfile', () => {
+    const wrapper = shallow(<App  />);
+
+
+  })
 
 });
 

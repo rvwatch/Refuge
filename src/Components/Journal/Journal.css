@@ -1,0 +1,12 @@
+.journal-form {
+  width: 350px;
+  margin: auto;
+  text-align: center;
+}
+
+.journal-form input,
+.journal-form textarea {
+  display: block;
+  margin-bottom: 15px;
+  width: 100%;
+}

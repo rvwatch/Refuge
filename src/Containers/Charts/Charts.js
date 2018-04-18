@@ -9,7 +9,7 @@ import {
   VictoryLabel
 } from 'victory';
 
-const chartData = dataStream => {
+export const chartData = dataStream => {
   return dataStream.map(point => {
     const time = point.time.split(':');
     const hours = Number(time[0]);
@@ -106,7 +106,7 @@ export const Charts = props => ({
   }
 });
 
-const mapStateToProps = state => ({
+export const mapStateToProps = state => ({
   heartRate: state.heartRate,
   stepsTaken: state.stepsTaken,
   restingHeart: state.restingHeart

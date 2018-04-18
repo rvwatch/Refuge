@@ -18,6 +18,13 @@ describe('Main', () => {
     expect(wrapper).toMatchSnapshot();
   });
 
+  it('should match the snapshot', () => {
+    const heartRate = [];
+    const stepsTaken = [];
+    wrapper = shallow(<Main heartRate={heartRate} stepsTaken={stepsTaken} />);
+    expect(wrapper).toMatchSnapshot();
+  });
+
   describe('mapStateToProps', () => {
     it('should add heartRate data to props', () => {
       const expected = mock.mockHeartRate;
