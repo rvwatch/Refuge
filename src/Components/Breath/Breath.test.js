@@ -1,7 +1,10 @@
+import  React from 'react';
 import {Breath} from './Breath';
+import {shallow} from 'enzyme';
 
 describe('Breath', () => {
   it('should match the snapshot', () => {
-    expect(Breath).toMatchSnapshot();
+    const wrapper = shallow(<Breath />);
+    expect(wrapper).toMatchSnapshot();
   });
 });

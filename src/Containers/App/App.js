@@ -24,142 +24,21 @@ export class App extends Component {
       loggedIn: false
     };
   }
-  // async componentDidMount() {
-  //   console.log('in the mount');
-
-  //   if (this.props.user && this.props.user.length) {
-  //     console.log('in the if in the mount');
-
-  //     const fitbitData = await getFitbitProfile();
-  //     const userData = {
-  //       user: fitbitData.user.displayName,
-  //       avgSteps: fitbitData.user.averageDailySteps
-  //     };
-  //     this.props.addFitBitData(userData);
-  //     const rawHeartRate = await getHeartRate();
-  //     const rawStepData = await getSteps();
-  //     const stepsTaken = rawStepData['activities-steps-intraday'].dataset;
-  //     const heartRate = rawHeartRate['activities-heart-intraday'].dataset;
-  //     const restingHeart = rawHeartRate['activities-heart'][0].value;
-  //     this.props.addHeartRate(heartRate);
-  //     this.props.addRestingHeart(restingHeart);
-  //     this.props.addStepsTaken(stepsTaken);
-  //   }
-  // }
-
   
-
-
   async componentDidUpdate() {
     const {user} = this.props;
     if (this.state.loggedIn){
       return;
     }
     if (user.username) {
-      console.log('Updated!');
       this.setState({
         loggedIn: true
       });
     }
-    
   }
 
-
-    // function myStopFunction() {
-    //   clearInterval(myVar);
-    // }
-
-    // let count = 0;
-    // let myVar;
-    // const fetchConditions = this.state.loggedIn && 
-    //   heartRate !== nextProps.heartRate ?  
-    //   myVar = setInterval(function(){ runFetchCalls(); }, 2000) 
-    //   : myStopFunction();
-
-    // fetchConditions();
-
-    // function runFetchCalls() {
-    //   console.log('fetching');
-    //   count++;
-    //   console.log(count)
-    //   if (count > 4){
-    //     console.log('Im counting now!')
-    //     myStopFunction()
-    //   }
-    // }
-    // myVar;
-  //}
-
-
-
-    
-    
-    
-
-    // if (!user.username){
-    //   return;
-    // }
-    // if (
-    //   this.state.loggedIn && heartRate !== nextProps.heartRate
-    // ) {
-    //   let self = this;
-    //     self.minuteFetchCall = setTimeout(async() => {
-    //     console.log('running setTimeout!');
-        
-    //     console.log('2 more fetches run');
-    // }, 60 * 1000);
-
-      
-    // }
-
-
-    
-
-
-
-  // async componentDidUpdate(){
-  //   if (this.props.user.username && this.props.user.username && this.props.heartRate && !this.props.heartRate.length){
-  //     console.log('in the did update');
-
-  //     const fitbitData = await getFitbitProfile();
-  //     const userData = {
-  //       user: fitbitData.user.displayName,
-  //       avgSteps: fitbitData.user.averageDailySteps
-  //     };
-  //     this.props.addFitBitData(userData);
-  //     const rawHeartRate = await getHeartRate();
-  //     const rawStepData = await getSteps();
-  //     const stepsTaken = rawStepData['activities-steps-intraday'].dataset;
-  //     const heartRate = rawHeartRate['activities-heart-intraday'].dataset;
-  //     const restingHeart = rawHeartRate['activities-heart'][0].value;
-  //     this.props.addHeartRate(heartRate);
-  //     this.props.addRestingHeart(restingHeart);
-  //     this.props.addStepsTaken(stepsTaken);
-  //   }
-  // }
-
-  // async componentWillReceiveProps(nextProps) {
-  //   console.log('receiving props');
-
-  //   if (this.props.heartRate && this.props.heartRate !== nextProps.heartRate)  {
-  //     console.log('in the if for willReceive!');
-
-  //     let self = this;
-  //     setTimeout(async function() {
-  //       const rawHeartRate = await getHeartRate();
-  //       const rawStepData = await getSteps();
-  //       const stepsTaken = rawStepData['activities-steps-intraday'].dataset;
-  //       const heartRate = rawHeartRate['activities-heart-intraday'].dataset;
-  //       const restingHeart = rawHeartRate['activities-heart'][0].value;
-  //       self.props.addHeartRate(heartRate);
-  //       self.props.addRestingHeart(restingHeart);
-  //       self.props.addStepsTaken(stepsTaken);
-  //     }, 60 * 1000);
-  //   }
-  // }
-
   handleLogout = () => {
-    const loggedOut = postLogout();
+    postLogout();
     this.props.logoutUser();
     this.setState({
       loggedIn: false
@@ -167,9 +46,9 @@ export class App extends Component {
   };
 
   render() {
-    const { heartRate, stepsTaken, user } = this.props;
     const loggedIn = this.state.loggedIn ? (
-      <Route exact path="/" render={() => <Main setIntervalFun={this.setIntervalFun} />} />
+      <Route exact path="/" render={() => 
+        <Main setIntervalFun={this.setIntervalFun} />} />
     ) : (
       <Route exact path="/" render={() => <LoginContainer />} />
     );

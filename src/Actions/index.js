@@ -8,7 +8,8 @@ export const setLoggedIn = () => ({
 });
 
 export const logoutUser = () => ({
-  type: 'LOGOUT_USER'
+  type: 'LOGOUT_USER',
+  user: {}
 });
 
 export const addFitBitData = user => ({

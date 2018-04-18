@@ -13,6 +13,16 @@ describe('addUser', () => {
   });
 });
 
+describe('setLoggedIn', () => {
+  it('should create setLoggedIn action object', () => {
+    const expected = {
+      type: 'SET_LOGGED_IN'
+    };
+    const result = Actions.setLoggedIn();
+    expect(result).toEqual(expected);
+  });
+});
+
 describe('logoutUser', () => {
   it('should create logoutUser action object', () => {
     const expected = {
