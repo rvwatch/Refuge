@@ -106,7 +106,7 @@ export const Charts = props => ({
   }
 });
 
-const mapStateToProps = state => ({
+export const mapStateToProps = state => ({
   heartRate: state.heartRate,
   stepsTaken: state.stepsTaken,
   restingHeart: state.restingHeart

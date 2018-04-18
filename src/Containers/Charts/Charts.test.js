@@ -1,6 +1,6 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import { Charts, mapStateToProps } from './Charts';
+import { Charts, mapStateToProps, chartData} from './Charts';
 import * as Actions from '../../Actions/';
 import * as mock from '../../MockData/';
 
@@ -19,8 +19,8 @@ describe('Charts', () => {
   });
 
   it('should clean heartRate data', () => {
-    const results = wrapper.instance().chartData(heartRate);
-    const expected = mock.mockHeartRate;
+    const results = chartData(mock.mockHeartRate);
+    const expected = mock.mockChartData;
     expect(results).toEqual(expected);
   });
 

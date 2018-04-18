@@ -28,9 +28,6 @@ export class SignIn extends Component {
     this.props.addUser(user);
     this.props.setLoggedIn();
     this.props.history.push('/');
-    if (user.error) {
-      throw new Error('Login error');
-    }
   };
 
   render() {

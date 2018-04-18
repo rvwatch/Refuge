@@ -5,8 +5,11 @@ ShallowWrapper {
   "length": 1,
   Symbol(enzyme.__root__): [Circular],
   Symbol(enzyme.__unrendered__): <SignIn
+    addUser={[Function]}
+    history={Array []}
     postNewUser={[Function]}
     preventDefault={[Function]}
+    setLoggedIn={[Function]}
 />,
   Symbol(enzyme.__renderer__): Object {
     "batchedUpdates": [Function],

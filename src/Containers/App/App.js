@@ -99,13 +99,13 @@ export class App extends Component {
         </header>
         {loggedIn}
         <Switch>
-          <Route exact path="/login" render={() => <LoginContainer />} />
-          <Route exact path="/breathing" render={() => <Breath />} />
-          <Route exact path="/mindfulness" render={() => <Mindfulness />} />
-          <Route exact path="/sound" render={() => <Sound />} />
-          <Route exact path="/journal" render={() => <Journal />} />
-          <Route exact path="/videos" render={() => <Videos />} />
-          <Route exact path="/support" render={() => <Lifeline />} />
+          <Route exact path="/login" component={LoginContainer} />
+          <Route exact path="/breathing" component={Breath} />
+          <Route exact path="/mindfulness" component={Mindfulness} />
+          <Route exact path="/sound" component={Sound} />
+          <Route exact path="/journal" component={Journal} />
+          <Route exact path="/videos" component={Videos} />
+          <Route exact path="/support" component={Lifeline} />
         </Switch>
       </section>
     );
