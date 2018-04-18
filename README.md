@@ -28,9 +28,9 @@ npm start
 
 ## Example Use
 
-![Sign-In Mobile](https://imgur.com/ZEmpv8I)
-![Dashboard Desktop](https://imgur.com/gtM3FgG)
-![Dashboard Mobile](https://imgur.com/Ne4Nw3L)
+![Sign-In Mobile](https://i.imgur.com/ZEmpv8I.png)
+![Dashboard Desktop](https://i.imgur.com/gtM3FgG.png)
+![Dashboard Mobile](https://i.imgur.com//Ne4Nw3L.png)
 
 ## API Reference
 
