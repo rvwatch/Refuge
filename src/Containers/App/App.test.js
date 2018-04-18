@@ -9,15 +9,28 @@ describe('App', () => {
   let addFitBitData;
   let addHeartRate;
   let addStepsTaken;
+  let history;
+  let logoutUser;
+  let postLogout;
+  let handleLogout;
   beforeEach(() => {
+    postLogout = jest.fn();
+    handleLogout = jest.fn();
+    logoutUser = jest.fn();
+    history = {};
     addFitBitData = jest.fn();
     addHeartRate = jest.fn();
     addStepsTaken = jest.fn();
     wrapper = shallow(
       <App
+        handleLogout={handleLogout}
+        history={history}
+        logoutUser={logoutUser}
         addFitBitData={addFitBitData}
         addHeartRate={addHeartRate}
         addStepsTaken={addStepsTaken}
+        postLogout={postLogout}
+        user={mock.user}
       />,
       {
         disableLifecycleMethods: true
@@ -28,6 +41,17 @@ describe('App', () => {
   it('should match the snapshot', () => {
     expect(wrapper).toMatchSnapshot();
   });
+
+  it('should logout a user', () => {
+
+    wrapper.state().loggedIn = true;
+    expect(wrapper.state().loggedIn).toEqual(true);
+    const spy = jest.spyOn(wrapper.instance(), 'handleLogout'); 
+    wrapper.update(); 
+    wrapper.instance('handleLogout'); 
+    expect(spy).toHaveBeenCalled();
+  });
+
 });
 
 describe('mapStateToProps', () => {

@@ -1,11 +1,12 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { string, object } from 'prop-types';
+import { string, array } from 'prop-types';
 import {
   VictoryChart,
   VictoryLine,
   VictoryAxis,
-  VictoryBar
+  VictoryBar,
+  VictoryLabel
 } from 'victory';
 
 const chartData = dataStream => {
@@ -53,7 +54,15 @@ export const Charts = props => ({
         <VictoryChart
           height={375} width={2000}
         >
-          
+          <VictoryLabel x={75} y={55}
+            text={'Heart Rate'}
+          />
+          <VictoryLabel x={210} y={55}
+            text={'Resting Heart Rate'}
+          />
+          <VictoryLabel x={360} y={55}
+            text={'Steps Taken'}
+          />
           <VictoryLine
             interpolation="monotoneX"
             data={heartLine}
@@ -104,8 +113,8 @@ const mapStateToProps = state => ({
 });
 
 Charts.propTypes = {
-  heartRate: object,
-  stepsTaken: object,
+  heartRate: array,
+  stepsTaken: array,
   restingHeart: string
 };
 
