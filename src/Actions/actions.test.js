@@ -1,20 +1,31 @@
 import * as Actions from './index';
+import * as mock from '../MockData/';
 
 describe('addUser', () => {
   it('should create addUser action object', () => {
-    const mockUser = 'Ricardo';
+    const mockUser = mock.mockUser;
     const expected = {
       type: 'ADD_USER',
-      user: mockUser
+      mockUser
     };
     const result = Actions.addUser(mockUser);
     expect(result).toEqual(expected);
   });
 });
 
+describe('logoutUser', () => {
+  it('should create logoutUser action object', () => {
+    const expected = {
+      type: 'LOGOUT_USER'
+    };
+    const result = Actions.logoutUser();
+    expect(result).toEqual(expected);
+  });
+});
+
 describe('addFitBitData', () => {
   it('should create addFitBitData action object', () => {
-    const mockFitBitData = 'Ricardo V.';
+    const mockFitBitData = mock.mockFitbitProfile;
     const expected = {
       type: 'ADD_FITBIT_DATA',
       user: mockFitBitData
@@ -38,18 +49,24 @@ describe('addHeartRate', () => {
 
 describe('addStepsTaken', () => {
   it('should create addStepsTaken action object', () => {
-    const mockStepsTaken = [
-      { time: '14:02:00', value: 51 },
-      { time: '14:03:00', value: 67 },
-      { time: '14:04:00', value: 29 },
-      { time: '14:05:00', value: 68 },
-      { time: '14:06:00', value: 76 }
-    ];
+    const steps = mock.mockStepsTaken;
     const expected = {
       type: 'ADD_STEPS_TAKEN',
-      steps: mockStepsTaken
+      steps
     };
-    const result = Actions.addStepsTaken(mockStepsTaken);
+    const result = Actions.addStepsTaken(steps);
+    expect(result).toEqual(expected);
+  });
+});
+
+describe('addRestingHeart', () => {
+  it('should create addRestingHeart action object', () => {
+    const restingHeart = mock.restingHeartRate;
+    const expected = {
+      type: 'ADD_RESTING_HEART',
+      restingHeart
+    };
+    const result = Actions.addRestingHeart(restingHeart);
     expect(result).toEqual(expected);
   });
 });
