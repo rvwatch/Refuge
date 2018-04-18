@@ -45,20 +45,6 @@ export class App extends Component {
       this.props.addHeartRate(heartRate);
       this.props.addRestingHeart(restingHeart);
       this.props.addStepsTaken(stepsTaken);
-      // if (!props.loggedIn){
-      //   console.log('Stopping the fetch calls!!! FINALLY!!!');
-      //   stopFetchCalls();
-      // }
-
-      // if (!props.loggedIn){
-      //   console.log('in the first if');
-      //   return;
-      // } else {
-      //   console.log(props.loggedIn);
-      //   console.log('running the fetch stuff now');
-      //   minuteFetchCalls = setInterval(function(){ runFetchCalls(); }, 60000);
-
-      // }
     }
   }
 
@@ -69,8 +55,6 @@ export class App extends Component {
   };
 
   render() {
-    console.log(this.props.loggedIn);
-    
     const loggedIn = this.props.loggedIn ? (
       <Route
         exact
@@ -132,7 +116,11 @@ export const mapDispatchToProps = dispatch => ({
 App.propTypes = {
   logoutUser: func,
   history: object,
-  loggedIn: bool
+  loggedIn: bool,
+  addFitBitData: func,
+  addHeartRate: func,
+  addRestingHeart: func,
+  addStepsTaken: func
 };
 
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(App));

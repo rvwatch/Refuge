@@ -20,7 +20,13 @@ describe('SignIn', () => {
     mockpostNewUser = jest.fn();
     addUser = jest.fn();
     setLoggedIn = jest.fn();
-    wrapper = shallow(<SignIn history={history} addUser={addUser} setLoggedIn={setLoggedIn} preventDefault={preventDefault} postNewUser={mockpostNewUser} />);
+    wrapper = shallow(<SignIn 
+      history={history} 
+      addUser={addUser} 
+      setLoggedIn={setLoggedIn} 
+      preventDefault={preventDefault} 
+      postNewUser={mockpostNewUser} 
+    />);
   });
 
   it('should match the snapshot', () => {

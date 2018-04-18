@@ -65,39 +65,39 @@ ShallowWrapper {
 />,
         <Switch>
           <Route
+                    component={[Function]}
                     exact={true}
                     path="/login"
-                    render={[Function]}
           />
           <Route
+                    component={[Function]}
                     exact={true}
                     path="/breathing"
-                    render={[Function]}
           />
           <Route
+                    component={[Function]}
                     exact={true}
                     path="/mindfulness"
-                    render={[Function]}
           />
           <Route
+                    component={[Function]}
                     exact={true}
                     path="/sound"
-                    render={[Function]}
           />
           <Route
+                    component={[Function]}
                     exact={true}
                     path="/journal"
-                    render={[Function]}
           />
           <Route
+                    component={[Function]}
                     exact={true}
                     path="/videos"
-                    render={[Function]}
           />
           <Route
+                    component={[Function]}
                     exact={true}
                     path="/support"
-                    render={[Function]}
           />
 </Switch>,
       ],
@@ -224,39 +224,39 @@ ShallowWrapper {
         "props": Object {
           "children": Array [
             <Route
+              component={[Function]}
               exact={true}
               path="/login"
-              render={[Function]}
 />,
             <Route
+              component={[Function]}
               exact={true}
               path="/breathing"
-              render={[Function]}
 />,
             <Route
+              component={[Function]}
               exact={true}
               path="/mindfulness"
-              render={[Function]}
 />,
             <Route
+              component={[Function]}
               exact={true}
               path="/sound"
-              render={[Function]}
 />,
             <Route
+              component={[Function]}
               exact={true}
               path="/journal"
-              render={[Function]}
 />,
             <Route
+              component={[Function]}
               exact={true}
               path="/videos"
-              render={[Function]}
 />,
             <Route
+              component={[Function]}
               exact={true}
               path="/support"
-              render={[Function]}
 />,
           ],
         },
@@ -267,9 +267,9 @@ ShallowWrapper {
             "key": undefined,
             "nodeType": "class",
             "props": Object {
+              "component": [Function],
               "exact": true,
               "path": "/login",
-              "render": [Function],
             },
             "ref": null,
             "rendered": null,
@@ -280,9 +280,9 @@ ShallowWrapper {
             "key": undefined,
             "nodeType": "class",
             "props": Object {
+              "component": [Function],
               "exact": true,
               "path": "/breathing",
-              "render": [Function],
             },
             "ref": null,
             "rendered": null,
@@ -293,9 +293,9 @@ ShallowWrapper {
             "key": undefined,
             "nodeType": "class",
             "props": Object {
+              "component": [Function],
               "exact": true,
               "path": "/mindfulness",
-              "render": [Function],
             },
             "ref": null,
             "rendered": null,
@@ -306,9 +306,9 @@ ShallowWrapper {
             "key": undefined,
             "nodeType": "class",
             "props": Object {
+              "component": [Function],
               "exact": true,
               "path": "/sound",
-              "render": [Function],
             },
             "ref": null,
             "rendered": null,
@@ -319,9 +319,9 @@ ShallowWrapper {
             "key": undefined,
             "nodeType": "class",
             "props": Object {
+              "component": [Function],
               "exact": true,
               "path": "/journal",
-              "render": [Function],
             },
             "ref": null,
             "rendered": null,
@@ -332,9 +332,9 @@ ShallowWrapper {
             "key": undefined,
             "nodeType": "class",
             "props": Object {
+              "component": [Function],
               "exact": true,
               "path": "/videos",
-              "render": [Function],
             },
             "ref": null,
             "rendered": null,
@@ -345,9 +345,9 @@ ShallowWrapper {
             "key": undefined,
             "nodeType": "class",
             "props": Object {
+              "component": [Function],
               "exact": true,
               "path": "/support",
-              "render": [Function],
             },
             "ref": null,
             "rendered": null,
@@ -400,39 +400,39 @@ ShallowWrapper {
 />,
           <Switch>
             <Route
+                        component={[Function]}
                         exact={true}
                         path="/login"
-                        render={[Function]}
             />
             <Route
+                        component={[Function]}
                         exact={true}
                         path="/breathing"
-                        render={[Function]}
             />
             <Route
+                        component={[Function]}
                         exact={true}
                         path="/mindfulness"
-                        render={[Function]}
             />
             <Route
+                        component={[Function]}
                         exact={true}
                         path="/sound"
-                        render={[Function]}
             />
             <Route
+                        component={[Function]}
                         exact={true}
                         path="/journal"
-                        render={[Function]}
             />
             <Route
+                        component={[Function]}
                         exact={true}
                         path="/videos"
-                        render={[Function]}
             />
             <Route
+                        component={[Function]}
                         exact={true}
                         path="/support"
-                        render={[Function]}
             />
 </Switch>,
         ],
@@ -559,39 +559,39 @@ ShallowWrapper {
           "props": Object {
             "children": Array [
               <Route
+                component={[Function]}
                 exact={true}
                 path="/login"
-                render={[Function]}
 />,
               <Route
+                component={[Function]}
                 exact={true}
                 path="/breathing"
-                render={[Function]}
 />,
               <Route
+                component={[Function]}
                 exact={true}
                 path="/mindfulness"
-                render={[Function]}
 />,
               <Route
+                component={[Function]}
                 exact={true}
                 path="/sound"
-                render={[Function]}
 />,
               <Route
+                component={[Function]}
                 exact={true}
                 path="/journal"
-                render={[Function]}
 />,
               <Route
+                component={[Function]}
                 exact={true}
                 path="/videos"
-                render={[Function]}
 />,
               <Route
+                component={[Function]}
                 exact={true}
                 path="/support"
-                render={[Function]}
 />,
             ],
           },
@@ -602,9 +602,9 @@ ShallowWrapper {
               "key": undefined,
               "nodeType": "class",
               "props": Object {
+                "component": [Function],
                 "exact": true,
                 "path": "/login",
-                "render": [Function],
               },
               "ref": null,
               "rendered": null,
@@ -615,9 +615,9 @@ ShallowWrapper {
               "key": undefined,
               "nodeType": "class",
               "props": Object {
+                "component": [Function],
                 "exact": true,
                 "path": "/breathing",
-                "render": [Function],
               },
               "ref": null,
               "rendered": null,
@@ -628,9 +628,9 @@ ShallowWrapper {
               "key": undefined,
               "nodeType": "class",
               "props": Object {
+                "component": [Function],
                 "exact": true,
                 "path": "/mindfulness",
-                "render": [Function],
               },
               "ref": null,
               "rendered": null,
@@ -641,9 +641,9 @@ ShallowWrapper {
               "key": undefined,
               "nodeType": "class",
               "props": Object {
+                "component": [Function],
                 "exact": true,
                 "path": "/sound",
-                "render": [Function],
               },
               "ref": null,
               "rendered": null,
@@ -654,9 +654,9 @@ ShallowWrapper {
               "key": undefined,
               "nodeType": "class",
               "props": Object {
+                "component": [Function],
                 "exact": true,
                 "path": "/journal",
-                "render": [Function],
               },
               "ref": null,
               "rendered": null,
@@ -667,9 +667,9 @@ ShallowWrapper {
               "key": undefined,
               "nodeType": "class",
               "props": Object {
+                "component": [Function],
                 "exact": true,
                 "path": "/videos",
-                "render": [Function],
               },
               "ref": null,
               "rendered": null,
@@ -680,9 +680,9 @@ ShallowWrapper {
               "key": undefined,
               "nodeType": "class",
               "props": Object {
+                "component": [Function],
                 "exact": true,
                 "path": "/support",
-                "render": [Function],
               },
               "ref": null,
               "rendered": null,

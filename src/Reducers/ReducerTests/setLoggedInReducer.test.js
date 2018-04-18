@@ -1,6 +1,5 @@
 import setLoggedInReducer from '../setLoggedInReducer';
 import * as Actions from '../../Actions/';
-import * as mock from '../../MockData';
 
 describe('addUserReducer', () => {
   it('should return a default state', () => {

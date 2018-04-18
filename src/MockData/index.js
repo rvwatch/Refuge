@@ -8,11 +8,17 @@ export const mockHeartRate = [
 ];
 
 export const mockChartData = [
+  // eslint-disable-next-line
   { x: '12:00:00 A.M.', y: 57 },
+  // eslint-disable-next-line
   { x: '12:01:00 A.M.', y: 59 },
+  // eslint-disable-next-line
   { x: '12:02:00 A.M.', y: 58 },
+  // eslint-disable-next-line
   { x: '12:03:00 A.M.', y: 59 },
+  // eslint-disable-next-line
   { x: '12:04:00 A.M.', y: 59 },
+  // eslint-disable-next-line
   { x: '12:05:00 A.M.', y: 59 }
 ];
 

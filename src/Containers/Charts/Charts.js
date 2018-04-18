@@ -38,13 +38,14 @@ export const chartData = dataStream => {
   });
 };
 
-export const Charts = props => ({
+export const Charts = ({heartRate, stepsTaken, restingHeart}) => ({
   render() {
-    const heartLine = chartData(props.heartRate);
-    const stepLine = chartData(props.stepsTaken);
-    const restingLine = chartData(props.heartRate.map( beat => 
+    
+    const heartLine = chartData(heartRate);
+    const stepLine = chartData(stepsTaken);
+    const restingLine = chartData(heartRate.map( beat => 
       ({time: beat.time, 
-        value: parseInt(props.restingHeart, 10)
+        value: parseInt(restingHeart, 10)
       })));
  
     

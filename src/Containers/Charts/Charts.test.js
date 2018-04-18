@@ -1,7 +1,6 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import { Charts, mapStateToProps, chartData} from './Charts';
-import * as Actions from '../../Actions/';
 import * as mock from '../../MockData/';
 
 describe('Charts', () => {
