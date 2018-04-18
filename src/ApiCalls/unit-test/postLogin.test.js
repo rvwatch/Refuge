@@ -15,7 +15,10 @@ describe('postLogin', () => {
 
   it('should fetch with the correct params', async () => {
     const url = `http://localhost:3000/login`;
-    const fetchBody = {"body": "username=undefined&password=undefined", "headers": {"Content-Type": "application/x-www-form-urlencoded;charset=UTF-8"}, "method": "POST"};
+    const fetchBody = {"body": "username=undefined&password=undefined", 
+      "headers": 
+      {"Content-Type": "application/x-www-form-urlencoded;charset=UTF-8"}, 
+      "method": "POST"};
     await postLogin();
     expect(window.fetch).toHaveBeenCalledWith(url, fetchBody);
   });

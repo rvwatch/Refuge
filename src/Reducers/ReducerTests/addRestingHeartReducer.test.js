@@ -12,7 +12,8 @@ describe('addRestingHeartReducer', () => {
     const expected = mock.restingHeartRate;
     const mockRestingHeartRate = mock.restingHeartRate;
     expect(
-      addRestingHeartReducer(undefined, Actions.addRestingHeart(mockRestingHeartRate))
+      addRestingHeartReducer(undefined, 
+        Actions.addRestingHeart(mockRestingHeartRate))
     ).toEqual(expected);
   });
 

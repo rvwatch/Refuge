@@ -1,7 +1,6 @@
 import { getHeartRate } from '../getHeartRate';
   
 describe('getHeartRate', () => {
-  let user;
   let mockHeartRate;
   beforeEach(() => {
     mockHeartRate = { time: '12:00:00', value: '67' };
