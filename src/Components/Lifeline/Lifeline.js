@@ -3,7 +3,7 @@ import React from 'react';
 export const Lifeline = () => {
   return (
     <section>
-      <h1>You betta call somebody!</h1>
+      <a href="tel:555-555-5555">555-555-5555</a>
     </section>
   ); 
 };

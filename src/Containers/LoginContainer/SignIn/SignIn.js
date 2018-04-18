@@ -31,6 +31,7 @@ export class SignIn extends Component {
       return;
     }
     this.props.addUser(user);
+    this.props.setLoggedIn();
     this.props.history.push('/');
   }
 
@@ -57,7 +58,8 @@ export class SignIn extends Component {
 export const mapStateToProps = ({ user }) => ({ user });
 
 export const mapDispatchToProps = dispatch => ({
-  addUser: user => dispatch(Actions.addUser(user))
+  addUser: user => dispatch(Actions.addUser(user)),
+  setLoggedIn: () => dispatch(Actions.setLoggedIn())
 });
 
 SignIn.propTypes = {

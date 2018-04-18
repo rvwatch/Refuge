@@ -3,6 +3,10 @@ export const addUser = user => ({
   user
 });
 
+export const setLoggedIn = () => ({
+  type: 'SET_LOGGED_IN'
+});
+
 export const logoutUser = () => ({
   type: 'LOGOUT_USER'
 });
