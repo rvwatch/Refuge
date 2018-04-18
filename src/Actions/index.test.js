@@ -26,7 +26,8 @@ describe('setLoggedIn', () => {
 describe('logoutUser', () => {
   it('should create logoutUser action object', () => {
     const expected = {
-      type: 'LOGOUT_USER'
+      type: 'LOGOUT_USER',
+      user: {}
     };
     const result = Actions.logoutUser();
     expect(result).toEqual(expected);
@@ -77,6 +78,18 @@ describe('addRestingHeart', () => {
       restingHeart
     };
     const result = Actions.addRestingHeart(restingHeart);
+    expect(result).toEqual(expected);
+  });
+});
+
+describe('addErrorMessage', () => {
+  it('should create addErrorMessage action object', () => {
+    const error = 'error';
+    const expected = {
+      type: 'ADD_ERROR',
+      error
+    };
+    const result = Actions.addErrorMessage(error);
     expect(result).toEqual(expected);
   });
 });

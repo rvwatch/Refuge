@@ -31,3 +31,8 @@ export const addRestingHeart = restingHeart => ({
   type: 'ADD_RESTING_HEART',
   restingHeart
 });
+
+export const addErrorMessage = error => ({
+  type: 'ADD_ERROR',
+  error
+});

@@ -41,4 +41,51 @@ describe('Main', () => {
       expect(mapped.stepsTaken).toEqual(expected);
     });
   });
+
+  describe('mapDispatchToProps', () => {
+    it('should call dispatch with correct params in addFitBitData', () => {
+      const mockDispatch = jest.fn();
+      const mockfitbitData = mock.mockFitbitProfile;
+      const expected = Actions.addFitBitData(mockfitbitData);
+      const mapped = mapDispatchToProps(mockDispatch);
+      mapped.addFitBitData(mockfitbitData);
+      expect(mockDispatch).toHaveBeenCalledWith(expected);
+    });
+  
+    it('should call dispatch with correct params in addHeartRate', () => {
+      const mockDispatch = jest.fn();
+      const mockHeartRate = mock.mockHeartRate
+      const expected = Actions.addHeartRate(mockHeartRate);
+      const mapped = mapDispatchToProps(mockDispatch);
+      mapped.addHeartRate(mockHeartRate);
+      expect(mockDispatch).toHaveBeenCalledWith(expected);
+    });
+  
+    it('should call dispatch with correct params in addStepsTaken', () => {
+      const mockDispatch = jest.fn();
+      const mockStepsTaken = mock.mockStepsTaken
+      const expected = Actions.addStepsTaken(mockStepsTaken);
+      const mapped = mapDispatchToProps(mockDispatch);
+      mapped.addStepsTaken(mockStepsTaken);
+      expect(mockDispatch).toHaveBeenCalledWith(expected);
+    });
+  
+    it('should call dispatch with correct params in addRestingHeart', () => {
+      const mockDispatch = jest.fn();
+      const restingHeartRate = mock.restingHeartRate
+      const expected = Actions.addRestingHeart(restingHeartRate);
+      const mapped = mapDispatchToProps(mockDispatch);
+      mapped.addRestingHeart(restingHeartRate);
+      expect(mockDispatch).toHaveBeenCalledWith(expected);
+    });
+  
+    it('should call dispatch for logoutUser action', () => {
+      const mockDispatch = jest.fn();
+      const expected = Actions.logoutUser();
+      const mapped = mapDispatchToProps(mockDispatch);
+      mapped.logoutUser();
+      expect(mockDispatch).toHaveBeenCalledWith(expected);
+    });
+  
+  });
 });

@@ -6,17 +6,17 @@ import * as mock from '../../MockData/';
 
 describe('App', () => {
   let wrapper;
-  let addFitBitData; 
+  let addFitBitData;
   let addHeartRate;
   let addStepsTaken;
   beforeEach(() => {
-    addFitBitData = jest.fn(); 
+    addFitBitData = jest.fn();
     addHeartRate = jest.fn();
     addStepsTaken = jest.fn();
     wrapper = shallow(
-      <App 
-        addFitBitData={addFitBitData} 
-        addHeartRate={addHeartRate} 
+      <App
+        addFitBitData={addFitBitData}
+        addHeartRate={addHeartRate}
         addStepsTaken={addStepsTaken}
       />,
       {
@@ -34,7 +34,7 @@ describe('mapStateToProps', () => {
   it('should add fitbit data to props', () => {
     const mockfitbitData = mock.mockFitbitProfile;
     const expected = mockfitbitData;
-    const mockState = {fitbitData: mockfitbitData};
+    const mockState = { fitbitData: mockfitbitData };
     const mapped = mapStateToProps(mockState);
     expect(mapped.fitbitData).toEqual(expected);
   });
@@ -42,7 +42,7 @@ describe('mapStateToProps', () => {
   it('should add heartRate data to props', () => {
     const mockHeartRate = mock.mockHeartRate;
     const expected = mockHeartRate;
-    const mockState = {heartRate: mockHeartRate};
+    const mockState = { heartRate: mockHeartRate };
     const mapped = mapStateToProps(mockState);
     expect(mapped.heartRate).toEqual(expected);
   });
@@ -50,7 +50,7 @@ describe('mapStateToProps', () => {
   it('should add stepsTaken data to props', () => {
     const mockStepsTaken = mock.mockStepsTaken;
     const expected = mockStepsTaken;
-    const mockState = {stepsTaken: mockStepsTaken};
+    const mockState = { stepsTaken: mockStepsTaken };
     const mapped = mapStateToProps(mockState);
     expect(mapped.stepsTaken).toEqual(expected);
   });
@@ -58,7 +58,7 @@ describe('mapStateToProps', () => {
   it('should add user to props', () => {
     const mockUser = mock.user;
     const expected = mockUser;
-    const mockState = {user: mockUser};
+    const mockState = { user: mockUser };
     const mapped = mapStateToProps(mockState);
     expect(mapped.user).toEqual(expected);
   });
@@ -76,7 +76,7 @@ describe('mapDispatchToProps', () => {
 
   it('should call dispatch with correct params in addHeartRate', () => {
     const mockDispatch = jest.fn();
-    const mockHeartRate = mock.mockHeartRate
+    const mockHeartRate = mock.mockHeartRate;
     const expected = Actions.addHeartRate(mockHeartRate);
     const mapped = mapDispatchToProps(mockDispatch);
     mapped.addHeartRate(mockHeartRate);
@@ -85,7 +85,7 @@ describe('mapDispatchToProps', () => {
 
   it('should call dispatch with correct params in addStepsTaken', () => {
     const mockDispatch = jest.fn();
-    const mockStepsTaken = mock.mockStepsTaken
+    const mockStepsTaken = mock.mockStepsTaken;
     const expected = Actions.addStepsTaken(mockStepsTaken);
     const mapped = mapDispatchToProps(mockDispatch);
     mapped.addStepsTaken(mockStepsTaken);
@@ -94,7 +94,7 @@ describe('mapDispatchToProps', () => {
 
   it('should call dispatch with correct params in addRestingHeart', () => {
     const mockDispatch = jest.fn();
-    const restingHeartRate = mock.restingHeartRate
+    const restingHeartRate = mock.restingHeartRate;
     const expected = Actions.addRestingHeart(restingHeartRate);
     const mapped = mapDispatchToProps(mockDispatch);
     mapped.addRestingHeart(restingHeartRate);
@@ -108,5 +108,4 @@ describe('mapDispatchToProps', () => {
     mapped.logoutUser();
     expect(mockDispatch).toHaveBeenCalledWith(expected);
   });
-
 });

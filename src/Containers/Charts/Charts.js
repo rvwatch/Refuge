@@ -3,7 +3,6 @@ import { connect } from 'react-redux';
 import {
   VictoryChart,
   VictoryLine,
-  VictoryZoomContainer,
   VictoryAxis,
   VictoryBar
 } from 'victory';
@@ -27,7 +26,9 @@ const chartData = dataStream => {
     timeValue += seconds < 10 ? ':0' + seconds : ':' + seconds; // get seconds
     timeValue += hours >= 12 ? ' P.M.' : ' A.M.'; // get AM/PM
     const newTime = {
+      // eslint-disable-next-line
       x: timeValue,
+      // eslint-disable-next-line
       y: point.value
     };
 
@@ -39,8 +40,8 @@ export const Charts = props => ({
   render() {
     const heartLine = chartData(props.heartRate);
     const stepLine = chartData(props.stepsTaken);
-    const restingLine = chartData(props.heartRate.map(beat => ({time: beat.time, value: parseInt(props.restingHeart)})));
-
+    const restingLine = chartData(props.heartRate.map(beat => ({time: beat.time, value: parseInt(props.restingHeart, 10)})));
+ 
     
     return (
       <section className="chart-wrap">
@@ -113,5 +114,10 @@ const mapStateToProps = state => ({
   stepsTaken: state.stepsTaken,
   restingHeart: state.restingHeart
 });
+
+Charts.propTypes = {
+  logoutUser: func,
+  history: object
+};
 
 export default connect(mapStateToProps, null)(Charts);

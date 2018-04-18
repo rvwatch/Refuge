@@ -1,5 +1,4 @@
 import { postLogout } from '../postLogout';
-import * as mock from '../../MockData/';
 
 describe('postLogout', () => {
   beforeEach(() => {

@@ -1,9 +1,12 @@
 import React from 'react';
-import { Link, withRouter, Switch, Route } from 'react-router-dom';
+import { Link, withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 import Charts from '../Charts/Charts';
-import { array } from 'prop-types';
-import { LoginContainer } from '../LoginContainer/LoginContainer';
+import { array, func } from 'prop-types';
+import { getFitbitProfile } from '../../ApiCalls/getFitbitProfile';
+import { getHeartRate } from '../../ApiCalls/getHeartRate';
+import { getSteps } from '../../ApiCalls/getSteps';
+import * as Actions from '../../Actions/index';
 
 export const Main = (props) => {
   
@@ -11,7 +14,6 @@ export const Main = (props) => {
     console.log('in the fun times!!!');
     
     let minuteFetchCalls;
-
     function stopFetchCalls() {
       clearInterval(minuteFetchCalls);
     }
@@ -19,47 +21,47 @@ export const Main = (props) => {
     const runFetchCalls = async () => {
       console.log('fetching');
       
-      // const fitbitData = await getFitbitProfile();
-      // const userData = {
-      //   user: fitbitData.user.displayName,
-      //   avgSteps: fitbitData.user.averageDailySteps
-      // };
-      // this.props.addFitBitData(userData);
-      // const rawHeartRate = await getHeartRate();
-      // const rawStepData = await getSteps();
-      // const stepsTaken = rawStepData['activities-steps-intraday'].dataset;
-      // const heartRate = rawHeartRate['activities-heart-intraday'].dataset;
-      // const restingHeart = rawHeartRate['activities-heart'][0].value;
-      // this.props.addHeartRate(heartRate);
-      // this.props.addRestingHeart(restingHeart);
-      // this.props.addStepsTaken(stepsTaken);
-      if (!this.state.loggedIn){
+      const fitbitData = await getFitbitProfile();
+      const userData = {
+        user: fitbitData.user.displayName,
+        avgSteps: fitbitData.user.averageDailySteps
+      };
+      props.addFitBitData(userData);
+      const rawHeartRate = await getHeartRate();
+      const rawStepData = await getSteps();
+      const stepsTaken = rawStepData['activities-steps-intraday'].dataset;
+      const heartRate = rawHeartRate['activities-heart-intraday'].dataset;
+      const restingHeart = rawHeartRate['activities-heart'][0].value;
+      props.addHeartRate(heartRate);
+      props.addRestingHeart(restingHeart);
+      props.addStepsTaken(stepsTaken);
+      if (!props.loggedIn){
         console.log('Stopping the fetch calls!!! FINALLY!!!');
         stopFetchCalls();
       }
     };
     
 
-    if (!this.state.loggedIn){
+    if (!props.loggedIn){
       console.log('in the first if');
       
       return;
     } else {
-      console.log(this.state.loggedIn);
+      console.log(props.loggedIn);
       console.log('running the fetch stuff now');
-      minuteFetchCalls = setInterval(function(){ runFetchCalls(); }, 2000);
-    
+      minuteFetchCalls = setInterval(function(){ runFetchCalls(); }, 60000);
+      
     }
-  }
+  };
 
 
   const charts =
   props.heartRate.length && props.stepsTaken.length ?
-    <Charts /> : 'Loading';
+    <Charts /> : <h2>Loading</h2>;
   console.log(props);
   
   return (
-    <div>
+    <section className='main-wrap'>
       {charts}
       <section className="therapies-wrap">
         {setIntervalFun()}
@@ -114,16 +116,27 @@ export const Main = (props) => {
         </Link>
         
       </section>
-    </div>
+    </section>
   );
 };
 
 export const mapStateToProps = 
-({heartRate, stepsTaken}) => ({heartRate, stepsTaken});
+({heartRate, stepsTaken, loggedIn}) => ({heartRate, stepsTaken, loggedIn});
+
+
+export const mapDispatchToProps = dispatch => ({
+  addFitBitData: data => dispatch(Actions.addFitBitData(data)),
+  addHeartRate: heartRate => dispatch(Actions.addHeartRate(heartRate)),
+  addStepsTaken: stepsTaken => dispatch(Actions.addStepsTaken(stepsTaken)),
+  addRestingHeart: restingHeart =>
+    dispatch(Actions.addRestingHeart(restingHeart)),
+  logoutUser: () => dispatch(Actions.logoutUser())
+});
 
 Main.propTypes = {
   heartRate: array,
-  stepsTaken: array
+  stepsTaken: array,
+  loggedIn: func
 };
 
-export default withRouter(connect(mapStateToProps, null)(Main));
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Main));

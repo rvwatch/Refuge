@@ -1,12 +1,9 @@
 import React, { Component } from 'react';
 import './App.css';
 import { connect } from 'react-redux';
-import { getFitbitProfile } from '../../ApiCalls/getFitbitProfile';
-import { getHeartRate } from '../../ApiCalls/getHeartRate';
-import { getCurrentUser } from '../../ApiCalls/getCurrentUser';
+import { object, func } from 'prop-types';
 import { postLogout } from '../../ApiCalls/postLogout';
-import { getSteps } from '../../ApiCalls/getSteps';
-import { Route, NavLink, Switch, withRouter, Link } from 'react-router-dom';
+import { Route, NavLink, Switch, withRouter } from 'react-router-dom';
 import { Breath } from '../../Components/Breath/Breath';
 import { Mindfulness } from '../../Components/Mindfulness/Mindfulness';
 import { Sound } from '../../Components/Sound/Sound';
@@ -64,8 +61,11 @@ export class App extends Component {
             />
           </NavLink>
           <div className="account">
-            <a href="#" onClick={this.handleLogout}>Logout</a>
-            <Link to="/login"> Login </Link>
+            <a role='button' 
+              className='logout-btn' 
+              onClick={this.handleLogout}>Logout
+            </a>
+            {/* <Link to="/login"> Login </Link> */}
           </div>
         </header>
         {loggedIn}
@@ -98,5 +98,10 @@ export const mapDispatchToProps = dispatch => ({
     dispatch(Actions.addRestingHeart(restingHeart)),
   logoutUser: () => dispatch(Actions.logoutUser())
 });
+
+App.propTypes = {
+  logoutUser: func,
+  history: object
+};
 
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(App));
