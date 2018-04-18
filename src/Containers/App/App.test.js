@@ -4,6 +4,7 @@ import { App, mapStateToProps, mapDispatchToProps } from './App';
 import * as Actions from '../../Actions/';
 import * as mock from '../../MockData/';
 
+
 describe('App', () => {
   let wrapper;
   let addFitBitData;
@@ -51,13 +52,6 @@ describe('App', () => {
     wrapper.instance('handleLogout'); 
     expect(spy).toHaveBeenCalled();
   });
-
-
-  it('should call getFitbitProfile', () => {
-    const wrapper = shallow(<App  />);
-
-
-  })
 
 });
 

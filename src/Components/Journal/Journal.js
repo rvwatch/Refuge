@@ -1,8 +1,8 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import './Journal.css';
 
 export class Journal extends Component {
-  constructor(){
+  constructor() {
     super();
     this.state = {
       title: '',
@@ -10,38 +10,39 @@ export class Journal extends Component {
     };
   }
 
-  handleInputs = (event) => {
-    const {name, value} = event.target;
+  handleInputs = event => {
+    const { name, value } = event.target;
     this.setState({
       [name]: value
-    })
-  }
+    });
+  };
 
-  addNote = () => {
-    console.log();
-    
-  }
+  // addNote = () => {
+  //   console.log();
+  // };
 
-  render () {
+  render() {
     return (
       <section>
         <header>
-          <h1 className='coming-soon'>Coming Soon!</h1>
-          <form className='journal-form'>
-            <input type='text' placeholder='Title' value={this.state.title} />
-            <textarea placeholder='Description' value={this.state.description}></textarea>
+          <h1 className="coming-soon">Coming Soon!</h1>
+          <form className="journal-form">
+            <input type="text" placeholder="Title" value={this.state.title} />
+            <textarea
+              placeholder="Description"
+              value={this.state.description}
+            />
             <button>add entry</button>
           </form>
         </header>
         <section>
-          <article className='note-wrap'>
+          <article className="note-wrap">
             <h1>Title</h1>
             <p>Description text</p>
-            <button className='delete-note'>x</button>
+            <button className="delete-note">x</button>
           </article>
         </section>
       </section>
-    ); 
+    );
   }
 }
-
