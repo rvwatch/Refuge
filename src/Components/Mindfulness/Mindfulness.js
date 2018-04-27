@@ -1,8 +1,14 @@
 import React from 'react';
+import {Link} from 'react-router-dom';
+
 
 export const Mindfulness = () => {
   return (
     <section>
+      <header className='excercise-nav'>
+        <Link to='/breath' className='prev'>breathe</Link>
+        <Link to='/sound' className='next'>sound</Link>
+      </header>
       <article className="video-frame">
         <iframe
           title="guided meditation"

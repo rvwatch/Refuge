@@ -1,8 +1,13 @@
 import React from 'react';
+import {Link} from 'react-router-dom';
 
 export const Videos = () => {
   return (
     <section>
+      <header className='excercise-nav'>
+        <Link to='/' className='prev'>dashboard</Link>
+        <Link to='/mindfulness' className='next'>meditate</Link>
+      </header>
       <article className="video-frame">
         <iframe
           title='Calming Video'

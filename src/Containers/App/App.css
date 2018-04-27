@@ -55,12 +55,58 @@
   cursor: pointer;
 }
 
+.key-container {
+  padding: 5px;
+  position: relative;
+  font: 20px;
+}
+
+.resting {
+  background-color: green;
+  margin-left: 30px;
+  padding: 3px 10px;
+  color: #fff;
+  border-radius: 5px;
+}
+
+.current {
+  background-color: #83B8F4;
+  margin-left: 20px;
+  padding: 3px 10px;
+  border-radius: 5px;
+}
+
+.steps {
+  background-color: #ffcf32;
+  margin-left: 20px;
+  padding: 3px 10px;
+  border-radius: 5px;
+}
+
 .chart-wrap {
   display: block;
   position: relative;
   margin: 30px;
   height: 400px;
   overflow-x: scroll;
+}
+
+
+
+.chart-key {
+  position: absolute;
+  top: 20px;
+  left: 30px;
+}
+
+.chart-wrap::-webkit-scrollbar {
+  -webkit-appearance: none;
+  width: 7px;
+}
+.chart-wrap::-webkit-scrollbar-thumb {
+  border-radius: 4px;
+  background-color: rgba(0,0,0,.5);
+  box-shadow: 0 0 1px rgba(255,255,255,.5);
 }
 
 .chart-wrap section{
@@ -89,7 +135,7 @@
   position: relative;
   display: block;
   position: relative;
-  margin: 80px 30px 30px;
+  margin: 40px 30px 30px;
   background-color: #fff;
   border-radius: 10px;
   -webkit-box-shadow: 0px 2px 5px 0px rgba(0,0,0,0.35);
@@ -126,6 +172,25 @@
   transition: all .5s;
 }
 
+.excercise-nav {
+  position: relative;
+  padding: 40px;
+  border-bottom: 1px solid #E4E4E4;
+  text-align: center;
+}
+
+.prev,
+.next {
+  border: 3px solid #8f8f8f;
+  font-size: 20px;
+  background-color: transparent;
+  margin: 0 20px 0 0;
+  border-radius: 3px;
+  padding: 0px 10px 2px 10px;
+  text-decoration: none;
+  color: #8f8f8f;
+}
+
 .breath {
   border-right: 1px solid #E4E4E4;
   border-bottom: 1px solid #E4E4E4;
@@ -146,11 +211,12 @@
 }
 
 .breathe-wrap{
-  padding: 40px;
+  padding: 0 0 40px 0;
   background-color: #fff;
   position: relative;
   margin: 1px 0 0 0;
-  height: 400px;
+  height: 600px;
+  padding-bottom: 200px;
 }
 
 .mind {
