@@ -3,7 +3,7 @@ import './App.css';
 import { connect } from 'react-redux';
 import { object, func, bool } from 'prop-types';
 import { postLogout } from '../../ApiCalls/postLogout';
-import { Route, NavLink, Switch, withRouter } from 'react-router-dom';
+import { Route, NavLink, Switch, withRouter, Link } from 'react-router-dom';
 import { Breath } from '../../Components/Breath/Breath';
 import { Mindfulness } from '../../Components/Mindfulness/Mindfulness';
 import { Sound } from '../../Components/Sound/Sound';
@@ -14,8 +14,10 @@ import { getFitbitProfile } from '../../ApiCalls/getFitbitProfile';
 import { getHeartRate } from '../../ApiCalls/getHeartRate';
 import { getSteps } from '../../ApiCalls/getSteps';
 import { LoginContainer } from '../LoginContainer/LoginContainer';
+import { RegisterContainer } from '../RegisterContainer/RegisterContainer';
 import Main from '../Main/Main';
 import * as Actions from '../../Actions/index';
+
 
 export class App extends Component {
   constructor() {
@@ -55,7 +57,11 @@ export class App extends Component {
   };
 
   render() {
-    const loggedIn = this.props.loggedIn ? (
+
+    const { name } = this.props.user;
+    
+
+    const loginPath = this.props.loggedIn ? (
       <Route
         exact
         path="/"
@@ -64,6 +70,10 @@ export class App extends Component {
     ) : (
       <Route exact path="/" render={() => <LoginContainer />} />
     );
+
+    const welcomeLink = this.props.loggedIn ? <Link to="/settings">{name}</Link> :  
+    <div><Link to='/login'>Sign-In </Link> <Link to='/register'> New User</Link></div>;
+
 
     return (
       <section className="App">
@@ -76,13 +86,13 @@ export class App extends Component {
             />
           </NavLink>
           <div className="account">
-            <a role="button" className="logout-btn" onClick={this.handleLogout}>
-              Logout
-            </a>
+            {welcomeLink}<br />
+            
           </div>
         </header>
-        {loggedIn}
+        {loginPath}
         <Switch>
+        <Route exact path="/register" component={RegisterContainer} />
           <Route exact path="/login" component={LoginContainer} />
           <Route exact path="/breathing" component={Breath} />
           <Route exact path="/mindfulness" component={Mindfulness} />

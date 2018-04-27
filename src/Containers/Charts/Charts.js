@@ -50,20 +50,26 @@ export const Charts = ({heartRate, stepsTaken, restingHeart}) => ({
  
     
     return (
+      <div className='key-container'>
+        <h2 className='chart-key'>daily activity:
+
+          <span className='resting'>
+            resting bpm--
+          </span>
+          <span className='current'>
+            latest bpm--
+          </span>
+          <span className='steps'>
+            steps taken--
+          </span>
+
+        </h2>
+      
       <section className="chart-wrap">
-        <h2>heart rate:</h2>
+        
         <VictoryChart
           height={375} width={2000}
         >
-          <VictoryLabel x={75} y={55}
-            text={'Heart Rate'}
-          />
-          <VictoryLabel x={210} y={55}
-            text={'Resting Heart Rate'}
-          />
-          <VictoryLabel x={360} y={55}
-            text={'Steps Taken'}
-          />
           <VictoryLine
             interpolation="monotoneX"
             data={heartLine}
@@ -76,7 +82,7 @@ export const Charts = ({heartRate, stepsTaken, restingHeart}) => ({
           />
           <VictoryBar 
             barRatio={2}
-            style={{ data: { fill: '#c43a31' } }} 
+            style={{ data: { fill: '#ffcf32' } }} 
             data={stepLine} 
           />
 
@@ -103,6 +109,7 @@ export const Charts = ({heartRate, stepsTaken, restingHeart}) => ({
           />
         </VictoryChart>
       </section>
+      </div>
     );
   }
 });

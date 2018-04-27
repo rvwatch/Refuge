@@ -1,8 +1,13 @@
 import React from 'react';
+import {Link} from 'react-router-dom';
 
 export const Sound = () => {
   return (
     <section>
+      <header className='excercise-nav'>
+        <Link to='/mindfulness' className='prev'>meditate</Link>
+        <Link to='/journal' className='next'>journal</Link>
+      </header>
       <article className="video-frame">
         <iframe
           title='calming sound-track'
