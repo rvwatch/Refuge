@@ -15,6 +15,7 @@ import { getHeartRate } from '../../ApiCalls/getHeartRate';
 import { getSteps } from '../../ApiCalls/getSteps';
 import { LoginContainer } from '../LoginContainer/LoginContainer';
 import { RegisterContainer } from '../RegisterContainer/RegisterContainer';
+import { Settings } from '../Settings/Settings';
 import Main from '../Main/Main';
 import * as Actions from '../../Actions/index';
 
@@ -93,6 +94,7 @@ export class App extends Component {
         {loginPath}
         <Switch>
         <Route exact path="/register" component={RegisterContainer} />
+          <Route path ='/settings' component={Settings} />
           <Route exact path="/login" component={LoginContainer} />
           <Route exact path="/breathing" component={Breath} />
           <Route exact path="/mindfulness" component={Mindfulness} />

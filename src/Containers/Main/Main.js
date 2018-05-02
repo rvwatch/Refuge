@@ -5,6 +5,7 @@ import Charts from '../Charts/Charts';
 import { array, bool } from 'prop-types';
 import * as Actions from '../../Actions/index';
 
+
 export const Main = (props) => {
   
   const charts =
