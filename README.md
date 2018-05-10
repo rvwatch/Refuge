@@ -1,3 +1,5 @@
+https://travis-ci.org/rvwatch/Refuge.svg?branch=master
+
 # Refuge
 
 I created Refuge as a tool to help those who suffer from high anxiety and panic attacks. It taps into the Fitbit api to help users view times when they were likely to have experienced stimulus that may have triggered a panic attack. It also provides users breathing exercises, guided meditations and playlists to help bring down the intensity of a panic attack. Users can also reach out to a support number if they're having a particularly tough time. 
