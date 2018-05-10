@@ -51,13 +51,15 @@ export class Charts extends Component {
     };
 
     const renderMarkers = this.state.markers.map(mark => {
-      return <Marker key={mark.yPos} {...mark} />;
+      return <Marker key={mark.yPos + mark.xPos} {...mark} />;
     });
 
     const showCoords = event => {
-      const container = document.querySelector('.chart-wrap');
-      const xPos = event.clientX - container.offsetLeft - 10 + container.scrollLeft;
-      const yPos = event.clientY - 125;
+      const container = document.querySelector('.click-div');
+      const rect = container.getBoundingClientRect();
+      const xPos = event.clientX - rect.x - 10;
+      const yPos = event.clientY - rect.y + 5;
+
       const markers = [...this.state.markers, {xPos, yPos}];
       this.setState({ markers });
     };
@@ -79,9 +81,10 @@ export class Charts extends Component {
           <span className="current">latest bpm--</span>
           <span className="steps">steps taken--</span>
         </h2>
-
-        <section className="chart-wrap" onClick={showCoords}>
+        
+        <section className="chart-wrap">
           {renderMarkers}
+          <div className='click-div' onClick={showCoords}>
           <VictoryChart height={375} width={2000}>
             <VictoryLine
               interpolation="monotoneX"
@@ -114,6 +117,7 @@ export class Charts extends Component {
             <VictoryAxis dependentAxis orientation="left" domain={[0, 220]} />
             <VictoryAxis dependentAxis orientation="right" />
           </VictoryChart>
+          </div>
         </section>
       </div>
     );

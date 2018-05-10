@@ -14,11 +14,9 @@ export const Main = (props) => {
   
   return (
     <section className='main-wrap'>
-      {charts}
       <section className="therapies-wrap">
-        <h2>therapies:</h2>
         <Link to="/breathing" className="breath">
-          <h3>breathing exercises</h3>
+          <h3>breathe</h3>
           <img
             alt="Icon"
             className="lungs-icon"
@@ -26,7 +24,7 @@ export const Main = (props) => {
           />
         </Link>
         <Link to="/mindfulness" className="mind">
-          <h3>guided meditations</h3>
+          <h3>meditate</h3>
           <img
             alt="Icon"
             className="mindfulness-icon"
@@ -34,7 +32,7 @@ export const Main = (props) => {
           />
         </Link>
         <Link to="/sound" className="sound">
-          <h3>calming playlists</h3>
+          <h3>sound</h3>
           <img
             alt="Icon"
             className="sound-icon"
@@ -50,7 +48,7 @@ export const Main = (props) => {
           />
         </Link>
         <Link to="/videos" className="sight">
-          <h3>relaxing videos</h3>
+          <h3>videos</h3>
           <img
             alt="Icon"
             className="sight-icon"
@@ -67,6 +65,7 @@ export const Main = (props) => {
         </a>
         
       </section>
+      {charts}
     </section>
   );
 };

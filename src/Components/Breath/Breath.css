@@ -2,10 +2,10 @@
 .box-breathing {
   width: 50vmin;
   height: 50vmin;
-  margin-top: -25vmin;
+  margin-top: -24vmin;
   margin-left: -25vmin;
   position: absolute;
-  top: 50%;
+  top: 30%;
   left: 50%;
   border-radius: 50%;
   border: 5px solid #87cefa;
@@ -18,10 +18,10 @@
   color: rgb(255, 255, 255, 1);
   width: 44vmin;
   height: 44vmin;
-  margin-top: -22vmin;
+  margin-top: -12vmin;
   margin-left: -22vmin;
   position: absolute;
-  top: 50%;
+  top: 30%;
   left: 50%;
   border-radius: 50%;
   content: '';
@@ -34,14 +34,15 @@
   0%, 75%, 100% {
     -webkit-transform: scale(0.3);
     transform: scale(0.3);
-    background-color: #72ffcb;
+    background-color: #87cefa;
     
+
     
   }
   25%, 50% {
     -webkit-transform: scale(1);
     transform: scale(1);
-    background-color: #87cefa;
+    background-color: #72ffcb;
   }
 
   0%, 35%{ content: "inhale"; }

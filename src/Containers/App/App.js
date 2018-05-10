@@ -72,8 +72,8 @@ export class App extends Component {
       <Route exact path="/" render={() => <LoginContainer />} />
     );
 
-    const welcomeLink = this.props.loggedIn ? <Link to="/settings">{name}</Link> :  
-    <div><Link to='/login'>Sign-In </Link> <Link to='/register'> New User</Link></div>;
+    const welcomeLink = this.props.loggedIn ? <Link to="/settings">Welcome, {name}</Link> :  
+    <div><Link to='/login'>Sign-In </Link>&nbsp;&nbsp;&nbsp; <Link to='/register'> New User</Link></div>;
 
 
     return (
