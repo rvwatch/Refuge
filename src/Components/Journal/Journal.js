@@ -1,52 +1,30 @@
 import React, { Component } from 'react';
-import {Link} from 'react-router-dom';
 import './Journal.css';
+import NotesContainer from './NotesContainer';
+import NotesControl from './NotesControl';
+
 
 export class Journal extends Component {
   constructor() {
     super();
     this.state = {
-      title: '',
-      description: ''
+      notes: []
     };
   }
 
-  handleInputs = event => {
-    const { name, value } = event.target;
-    this.setState({
-      [name]: value
-    });
-  };
-
-  // addNote = () => {
-  //   console.log();
-  // };
+  addNote = (note) => {
+    const newNote = {...note, id: Date.now()};
+    const notes = [...this.state.notes, newNote];
+    this.setState({ notes });
+  }
 
   render() {
     return (
-      <section>
-        <div className='excercise-nav'>
-          <Link to='/sound' className='prev'>sound</Link>
-          <Link to='/videos' className='next'>videos</Link>
-        </div>
+      <section className='journal-form'>
         <header>
-          <h1 className="coming-soon">Coming Soon!</h1>
-          <form className="journal-form">
-            <input type="text" placeholder="Title" value={this.state.title} />
-            <textarea
-              placeholder="Description"
-              value={this.state.description}
-            />
-            <button>add entry</button>
-          </form>
+          <NotesControl addNote={ this.addNote } />
         </header>
-        {/* <section>
-          <article className="note-wrap">
-            <h1>Title</h1>
-            <p>Description text</p>
-            <button className="delete-note">x</button>
-          </article>
-        </section> */}
+        <NotesContainer notes={this.state.notes} />
       </section>
     );
   }

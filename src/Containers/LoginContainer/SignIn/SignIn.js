@@ -38,7 +38,7 @@ export class SignIn extends Component {
           <input
             onChange={this.handleInput}
             type="text"
-            placeholder="username"
+            placeholder="email"
             name="username"
             value={this.state.username}
           />
