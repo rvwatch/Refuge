@@ -1,4 +1,4 @@
-https://travis-ci.org/rvwatch/Refuge.svg?branch=master
+[![Build Status](https://travis-ci.org/rvwatch/Refuge.svg?branch=master)](https://travis-ci.org/rvwatch/Refuge)
 
 # Refuge
 
