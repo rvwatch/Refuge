@@ -62,7 +62,3 @@ Jest & Enzyme
 ## Authors
 
 * **Ricardo Viera** - _Built it all!_ - [rvwatch](https://github.com/rvwatch)
-
-## Acknowledgments
-
-* Turing - School of software development
