@@ -37,7 +37,7 @@ npm start
 ## API Reference
 
 API being used:
-[Fitbit APOI](https://dev.fitbit.com/build/reference/web-api/)
+[Fitbit API](https://dev.fitbit.com/build/reference/web-api/)
 
 ## Running the tests
 
