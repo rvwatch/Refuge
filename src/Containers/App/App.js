@@ -18,6 +18,7 @@ import { RegisterContainer } from '../RegisterContainer/RegisterContainer';
 import { Settings } from '../Settings/Settings';
 import Main from '../Main/Main';
 import * as Actions from '../../Actions/index';
+import NewSignIn from '../LoginContainer/SignIn/newSignIn';
 
 
 export class App extends Component {
@@ -69,11 +70,11 @@ export class App extends Component {
         render={() => <Main setIntervalFun={this.setIntervalFun} />}
       />
     ) : (
-      <Route exact path="/" render={() => <LoginContainer />} />
+      <Route exact path="/" render={() => <NewSignIn />} />
     );
 
     const welcomeLink = this.props.loggedIn ? <Link to="/settings">Welcome, {name}</Link> :  
-    <div><Link to='/login'>Sign-In </Link>&nbsp;&nbsp;&nbsp; <Link to='/register'> New User</Link></div>;
+      <div><Link to='/login'>Sign-In </Link>&nbsp;&nbsp;&nbsp; <Link to='/register'> New User</Link></div>;
 
 
     return (
@@ -93,7 +94,7 @@ export class App extends Component {
         </header>
         {loginPath}
         <Switch>
-        <Route exact path="/register" component={RegisterContainer} />
+          <Route exact path="/register" component={RegisterContainer} />
           <Route path ='/settings' component={Settings} />
           <Route exact path="/login" component={LoginContainer} />
           <Route exact path="/breathing" component={Breath} />
