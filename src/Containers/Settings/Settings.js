@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { object } from 'prop-types';
-import * as Actions from '../../Actions/index';
 import './Settings.css';
 
 export class Settings extends Component {

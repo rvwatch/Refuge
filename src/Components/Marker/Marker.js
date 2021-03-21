@@ -18,7 +18,7 @@ export class Marker extends Component {
   }
 
   handleMarker = (event) => {
-    const {name, value} = event.target;
+    const { value} = event.target;
     
     this.setState({
       name: [value]

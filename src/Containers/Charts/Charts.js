@@ -6,8 +6,7 @@ import {
   VictoryChart,
   VictoryLine,
   VictoryAxis,
-  VictoryBar,
-  VictoryLabel
+  VictoryBar
 } from 'victory';
 import './Charts.css';
 
