@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
-// import firebase from 'firebase';
+import firebase from 'firebase';
+import env from './env.js';
 import '../LoginContainer.css';
 // import { postLogin } from '../../../ApiCalls/postLogin';
 // import { useDispatch } from 'react-redux';
@@ -7,35 +8,53 @@ import { useHistory } from "react-router-dom";
 // import * as Actions from '../../../Actions/';
 
 const NewSignIn = () => {
-  // useEffect( () => {
-  //   firebase.initializeApp({
-  //     apiKey: 'AIzaSyAcxCaic7ghfcSvxLbWeKUed3nmFNXaiME',
-  //     authDomain: 'refuge-d2418.firebaseapp.com',
-  //     projectId: 'refuge-d2418',
-  //     storageBucket: 'refuge-d2418.appspot.com',
-  //     messagingSenderId: '115368666273',
-  //     appId: '1:115368666273:web:a7e840b2a34527ee9e3ce0',
-  //     measurementId: 'G-S48FW6R2BT'
-  //   });
-  // }, []);
+  useEffect( () => {
+    firebase.initializeApp({
+      apiKey: env.apiKey,
+      authDomain: env.authDomain,
+      projectId: env.projectId,
+      storageBucket: env.storageBucket,
+      messagingSenderId: env.messagingSenderId,
+      appId: env.appId,
+      measurementId: env.measurementId
+    });
+  }, []);
   let history = useHistory();
 
   const [input, setInput] = useState({});
   const [loggedIn, setLoggedIn] = useState(false);
+  const [error, setError] = useState('');
 
-  const handleInputChange = (e) => 
-  setInput({
-    ...input,
-    [e.currentTarget.name]: e.currentTarget.value,
-  });
+  const handleInputChange = (event) => 
+    setInput({
+      ...input,
+      [event.currentTarget.name]: event.currentTarget.value
+    });
 
   const signInUser = async event => {
+    setError('');
     event.preventDefault();
-    const { username, password } = input;
-    console.log(username);
-    console.log(password);
+    const { email, password } = input;
+    // const tryAuth = firebase.auth().signInWithEmailAndPassword(email, password);
+    // console.log('====================================');
+    // console.log(tryAuth);
+    // console.log('====================================');
+    // const tryAuth = firebase.auth().createUserWithEmailAndPassword(email, password);
+    // console.log('====================================');
+    // console.log(tryAuth);
+    // console.log('====================================');
+    firebase.auth().signInWithEmailAndPassword(email, password)
+      .catch(() => {
+        firebase.auth().createUserWithEmailAndPassword(email, password)
+          .catch((error) => {
+            console.log('====================================');
+            console.log(error.message);
+            console.log('====================================');
+            setError(error.message);
+          });
+      });
+    
     setLoggedIn(current => !current);
-    console.log(loggedIn);
     history.push('/');
     // const user = await postLogin(username, password);
     // this.props.addUser(user);
@@ -45,7 +64,7 @@ const NewSignIn = () => {
 
   useEffect( () => {
     console.log(loggedIn);
-}, [loggedIn]);
+  }, [loggedIn]);
 
   return (
     <form className="signin-form" onSubmit={signInUser}>
@@ -53,9 +72,9 @@ const NewSignIn = () => {
       <div>
         <input
           onChange={handleInputChange}
-          type="text"
+          type='text'
           placeholder="email"
-          name="username"
+          name="email"
         />
       </div>
       <div>
@@ -67,7 +86,10 @@ const NewSignIn = () => {
         />
       </div>
       <div>
-        <input className="submit-btn" type="submit" value="enter" />
+        {error}
+      </div>
+      <div>
+        <input className="submit-btn" type="submit" value="Sign-In" />
       </div>
     </form>
   );
