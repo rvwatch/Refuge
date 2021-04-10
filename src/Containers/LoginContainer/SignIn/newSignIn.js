@@ -35,24 +35,20 @@ const NewSignIn = () => {
     setError('');
     event.preventDefault();
     const { email, password } = input;
-    // const tryAuth = firebase.auth().signInWithEmailAndPassword(email, password);
-    // console.log('====================================');
-    // console.log(tryAuth);
-    // console.log('====================================');
-    // const tryAuth = firebase.auth().createUserWithEmailAndPassword(email, password);
-    // console.log('====================================');
-    // console.log(tryAuth);
-    // console.log('====================================');
-    firebase.auth().signInWithEmailAndPassword(email, password)
-      .catch(() => {
+    try {
+      const response = await firebase.auth().signInWithEmailAndPassword(email, password);
+      console.log('response', response);
+      const result = await response.json()
+      console.log('result', result)
+    } catch (error) {
+      setError(error.message);
+      try {
         firebase.auth().createUserWithEmailAndPassword(email, password)
-          .catch((error) => {
-            console.log('====================================');
-            console.log(error.message);
-            console.log('====================================');
-            setError(error.message);
-          });
-      });
+      } catch (error) {
+        console.log('in second catch');
+        setError(error.message);
+      }
+    }
     
     setLoggedIn(current => !current);
     history.push('/');
